@@ -1,0 +1,162 @@
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    height: 1180px;
+}
+
+.detection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 1120px;
+    height: 1180px;
+    background-color: #C4DFAA;
+}
+
+.userBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 800px;
+    height: 1180px;
+    background-color: #90C8AC;
+}
+
+.smallViews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+
+    width: 900px;
+    height: 150px;
+}
+
+.smallView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 200px;
+    height: 150px;
+
+    background-color: #F5F0BB;
+}
+
+.targetView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 900px;
+    height: 600px;
+
+    margin-top: 60px;
+    margin-bottom: 20px;
+
+    background-color: #90C8AC;
+}
+
+.backBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+
+    width: 900px;
+    height: 80px;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 16px;
+
+    width: 250px;
+    height: 60px;
+
+    background-color: #73A9AD;
+
+    cursor: pointer;
+}
+
+.userImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 200px;
+    height: 150px;
+
+    background-color: #73A9AD;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 60px;
+    margin-bottom: 20px;
+
+    width: 500px;
+    height: 600px;
+
+    background-color: #F5F0BB;
+}
+
+.detailBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+
+    width: 500px;
+    height: 80px;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 16px;
+
+    width: 250px;
+    height: 60px;
+
+    background-color: #73A9AD;
+}
+
+.userLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 500px;
+    height: 1180px;
+}

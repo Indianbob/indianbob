@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/patientStyle/patient-detail-style.css">
+
+</head>
+<body>
+    <div class="patientDetailPage">
+    <h1>+++header+++</h1>
+    <hr/><br/>
+
+    <img src="/images/patient/Obama.jpg" class="patientImg"/>
+
+    <div class="patientDetailInfo">
+    <div class="patientDetailInfoContent" th:text="|이름 : ${patient.name}|"></div>
+    <div class="patientDetailInfoContent" th:text="|생년월일/나이(만) : ${patient.birth}|"></div>
+    <div class="patientDetailInfoContent" th:text="|성별 : ${patient.gender}|"></div>
+    <div class="patientDetailInfoContent" th:text="|지병 : ${patient.disease}|"></div>
+    </div>
+
+    <table class="noticeTable">
+        <tr> <td style="border-bottom:dotted">특이사항</td> </tr>
+        <tr> <td style="padding:15px" th:text="${script}"></td> </tr>
+    </table>
+        <br/>
+
+
+    <button>수정하기</button>
+    <button>목록으로</button>
+
+    <hr/>
+    <h1>+++footer+++</h1>
+    </div>
+</body>
+</html>
