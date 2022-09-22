@@ -7,8 +7,9 @@
 
 </head>
 <body>
-    <div class="patientDetailPage">
+
     <h1>+++header+++</h1>
+    <div class="patientDetailPage">
     <hr/><br/>
 
     <img src="/images/patient/Obama.jpg" class="patientImg"/>
@@ -27,11 +28,12 @@
         <br/>
 
 
-    <button>수정하기</button>
-    <button>목록으로</button>
+    <button th:onclick="|location.href='@{/patient/${patient.num}'|">수정하기</button>
+    <button th:onclick="|location.href='@{/patient}'|" >목록으로</button>
 
     <hr/>
-    <h1>+++footer+++</h1>
     </div>
+    <h1>+++footer+++</h1>
+
 </body>
 </html>
