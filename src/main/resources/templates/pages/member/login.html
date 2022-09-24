@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+</head>
+
+<body>
+<div class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>로그인</h1>
+        </div>
+
+        <div class="login-form">
+            <form id="loginForm" th:action="@{/member/login}" method="post">
+                <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="아이디" id="login-name" name="staffId">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="비밀번호" id="login-pass" name="staffPw">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="btns">
+                    <input type="button" class="btn btn-primary btn-large btn-block" value="회원가입" id="regist" th:onclick="|location.href='@{/member/register}'|">
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-primary btn-large btn-block" value="로그인" id="loginSubmit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

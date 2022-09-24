@@ -9,4 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/detection")
 public class DetectionController {
 
+
+
 }
