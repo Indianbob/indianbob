@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <script type="text/javascript" th:src="@{/js/event.js}"></script>
+</head>
+
+<body>
+<div class="register">
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>회원가입</h1>
+        </div>
+
+        <form class="login-Form" th:action="@{/member/register}" method="post">
+            <table style="margin: 0 auto">
+                <tr>
+                    <td style="width: 120px">* 아이디 </td>
+                    <td><input type="text" maxlength="13" name="staffId" id="staffId" required></td>
+<!--                    <td style="width: 100px"><input type="button" value="중복확인" class="btn btn-bs" id="duplicationCheck"></td>-->
+                </tr>
+                <tr>
+                    <td>* 비밀번호</td>
+                    <td><input type="password" maxlength="13" name="staffPw" required></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>* 비밀번호확인</td>
+                    <td><input type="password" maxlength="13" name="staffPw2"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>* 이름</td>
+                    <td><input type="text" maxlength="5" name="staffName" required></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>연락처 </td>
+                    <td><input type="tel" name="staffPhone"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>직급 </td>
+                    <td><input type="text" name="staffRank"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <br>
+            <div class="btns" style="align-items: center">
+                <button type="button" class="btn btn-pk btns" id="goMain" th:onclick="|location.href='@{/}'|">돌아가기</button>
+                <input type="submit" value="가입하기" class="btn btn-or">
+            </div>
+        </form>
+    </div>	<!-- outer end -->
+    </th:block>
+    </div>
+</div>
+</body>
+
+</html>
