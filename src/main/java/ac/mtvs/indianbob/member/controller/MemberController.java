@@ -35,7 +35,7 @@ public class MemberController {
     }
 
     @PostMapping("/register")
-    public String registMember(@ModelAttribute MemberDTO member, HttpServletRequest request,
+    public String registMember(@ModelAttribute MemberDTO member,
                                RedirectAttributes rttr) throws MemberRegistException {
 
         log.info("");
@@ -55,28 +55,28 @@ public class MemberController {
         return "redirect:/";
     }
 
-//    @PostMapping("/idDupCheck")
-//    public ResponseEntity<String> checkDuplication(@RequestBody MemberDTO memberDto) throws JsonProcessingException {
-//
-//        log.info("");
-//        log.info("");
-//        log.info("[MemberController] checkDuplication ==========================================================");
-//
-//        String result = "사용 가능한 아이디 입니다.";
-//        log.info("[MemberController] Request Check ID : " + memberDto.getStaffId());
-//
-//        if("".equals(memberDto.getStaffId())) {
-//            log.info("[MemberController] No Input Member ID");
-//            result = "아이디를 입력해 주세요";
-//        } else if(memberService.selectMemberById(memberDto.getStaffId())) {
-//            log.info("[MemberController] Already Exist");
-//            result = "중복된 아이디가 존재합니다.";
-//        }
-//
-//        log.info("[MemberController] checkDuplication ==========================================================");
-//
-//        return ResponseEntity.ok(result);
-//    }
+    @PostMapping("/idDupCheck")
+    public ResponseEntity<String> checkDuplication(@RequestBody MemberDTO memberDto) throws JsonProcessingException {
+
+        log.info("");
+        log.info("");
+        log.info("[MemberController] checkDuplication ==========================================================");
+
+        String result = "사용 가능한 아이디 입니다.";
+        log.info("[MemberController] Request Check ID : " + memberDto.getStaffId());
+
+        if("".equals(memberDto.getStaffId())) {
+            log.info("[MemberController] No Input Member ID");
+            result = "아이디를 입력해 주세요";
+        } else if(memberService.selectMemberById(memberDto.getStaffId())) {
+            log.info("[MemberController] Already Exist");
+            result = "중복된 아이디가 존재합니다.";
+        }
+
+        log.info("[MemberController] checkDuplication ==========================================================");
+
+        return ResponseEntity.ok(result);
+    }
 
     @GetMapping("/login")
     public String goLogin() {
@@ -84,28 +84,10 @@ public class MemberController {
         return "pages/member/login";
     }
 
-
-//    @PostMapping("/login")
-//    public String goLogin(@ModelAttribute MemberDTO memberDTO, HttpServletRequest request,
-//                          RedirectAttributes rttr) {
-//
-//        log.info("");
-//        log.info("");
-//        log.info("[MemberController] loginMember ==========================================================");
-//
-//        memberService.login(memberDTO);
-//
-//        rttr.addFlashAttribute("message", "로그인에 성공하였습니다.");
-//
-//        log.info("[MemberController] loginMember Success ==========================================================");
-//
-//        return "main/main";
-//    }
-
-
     @GetMapping("/loginfail")
     public String goLoginFail() {
 
-        return "errors/login";
+        return "pages/errors/login";
     }
+
 }

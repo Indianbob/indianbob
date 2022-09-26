@@ -47,7 +47,14 @@ public class MemberService {
         MemberDTO member = mapper.findByMemberId(memberDTO.getStaffId());
 
         if (!passwordEncoder.matches(memberDTO.getStaffPw(), member.getStaffPw())) {
-            log.info("[AuthService] Password Match Fail!!!!!!!!!!!!");
+            log.info("Password Match Fail!!!!!!!!!!!!");
         }
+    }
+
+    public boolean selectMemberById(String staffId) {
+
+        String result = mapper.selectMemberById(staffId);
+
+        return result != null? true : false;
     }
 }
