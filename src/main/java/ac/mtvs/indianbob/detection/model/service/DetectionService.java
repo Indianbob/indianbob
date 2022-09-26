@@ -21,6 +21,11 @@ public class DetectionService {
         return detectionMapper.selectRecentDetectionInfo(patientId);
     }
 
+    public DetectionDTO selectDetectionByPatientCode(int patientCode) {
+
+        return detectionMapper.selectDetectionByPatientCode(patientCode);
+    }
+
     @Transactional
     public boolean insertDetectionInfo(DetectionDTO detectionInfo) {
 

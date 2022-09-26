@@ -3,10 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ac.mtvs.indianbob.detection.model.dao.DetectionMapper">
+
     <select id="selectRecentDetectionInfo" resultType="DetectionDTO">
         SELECT A.*
           FROM DETECTION_LOG A
          WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM DETECTION_LOG B)
+    </select>
+
+    <select id="selectDetectionByPatientCode" resultType="DetectionDTO">
+        SELECT A.*
+        FROM DETECTION_LOG A
+        WHERE A.DETECTION_CODE = #{ patientCode }
     </select>
 
     <insert id="insertDetectionInfo" parameterType="DetectionDTO">

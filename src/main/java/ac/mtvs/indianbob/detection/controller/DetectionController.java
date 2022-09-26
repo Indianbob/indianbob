@@ -1,5 +1,9 @@
 package ac.mtvs.indianbob.detection.controller;
 
+import ac.mtvs.indianbob.detection.model.dto.DetectionDTO;
+import ac.mtvs.indianbob.detection.model.service.DetectionService;
+import ac.mtvs.indianbob.patient.model.dto.PatientDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,12 +15,23 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/detection")
 public class DetectionController {
 
-    @GetMapping("/detail")
-    public ModelAndView detectionDetailPage(ModelAndView mv, @RequestParam(name="patientCode") int patientCode) {
+//    private PatientService patientService;
+      private DetectionService detectionService;
+//    @Autowired
+//    public DetectionController(PatientService patientService, DetectionService detectionService) {
+//      this.patientService = patientService;
+//      this.detectionService = detectionService;
+//    }
 
-        System.out.println(patientCode);
+    @GetMapping("/detail")
+    public ModelAndView detectionDetailPage(ModelAndView mv) {
+
+//        System.out.println(patientCode);
 
         // 회원 코드로 회원 정보 조회
+//        PatientDTO patientInfo = patientService.selectPatientByPatientCode();
+//        DetectionDTO detectionInfo = detectionService.selectDetectionByPatientCode(patientCode);
+
         // 회원 코드로 최근 탐지 정보 조회
         // mv에 회원 정보 및 탐지 정보 추가 후 타임리프에서 사용
 
