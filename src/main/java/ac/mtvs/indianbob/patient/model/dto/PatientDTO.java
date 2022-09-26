@@ -1,4 +1,4 @@
-package ac.mtvs.indianbob.model.dto;
+package ac.mtvs.indianbob.patient.model.dto;
 
 public class PatientDTO {
 
