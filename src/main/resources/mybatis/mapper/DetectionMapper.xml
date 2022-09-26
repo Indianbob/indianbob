@@ -6,6 +6,21 @@
     <select id="selectRecentDetectionInfo" resultType="DetectionDTO">
         SELECT A.*
           FROM DETECTION_LOG A
-         WHERE A.DETECTION_CODE = MAX(A.DETECTION_CODE)
+         WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM DETECTION_LOG B)
     </select>
+
+    <insert id="insertDetectionInfo" parameterType="DetectionDTO">
+        INSERT
+          INTO DETECTION_LOG A
+        VALUES
+             (
+               SEQ_DETECTION_CODE.NEXTVAL
+             , #{ detectionDate }
+             , #{ detectionLocation }
+             , #{ patientCode }
+             , #{ imagePath }
+             , #{ imageName }
+             )
+
+    </insert>
 </mapper>
