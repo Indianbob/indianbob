@@ -19,5 +19,4 @@
         <mapper resource="DetectionMapper.xml"/>
         <mapper resource="PatientMapper.xml" />
     </mappers>
-
 </configuration>

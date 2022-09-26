@@ -19,6 +19,17 @@
           AND A.STAFF_ID = #{ staffId }
     </select>
 
+    <select id="findMemberAll" resultType="MemberDTO">
+        SELECT
+            A.STAFF_CODE
+             , A.STAFF_ID
+             , A.STAFF_PW
+             , A.STAFF_NAME
+             , A.STAFF_PHONE
+             , A.STAFF_RANK
+        FROM STAFF A
+    </select>
+
     <select id="findByMemberId" resultType="MemberDTO">
         SELECT
                A.STAFF_CODE

@@ -2,6 +2,7 @@ package ac.mtvs.indianbob.config;
 
 
 import ac.mtvs.indianbob.member.service.AuthenticationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
