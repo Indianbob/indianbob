@@ -4,12 +4,16 @@ import ac.mtvs.indianbob.detection.model.dto.DetectionInfoResponse;
 import ac.mtvs.indianbob.detection.model.dto.DetectionDTO;
 import ac.mtvs.indianbob.detection.model.service.DetectionService;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.stream.Collectors;
 
@@ -19,11 +23,12 @@ public class DetectionAPIController {
 
     private final DetectionService detectionService;
 
+    @Autowired
     public DetectionAPIController(DetectionService detectionService) {
         this.detectionService = detectionService;
     }
 
-    @GetMapping ("/info")
+    @PostMapping("/info")
     public DetectionInfoResponse detectionInfoAPI(HttpServletRequest resquest) throws IOException {
 
         JSONObject resData = new JSONObject(resquest.getReader().lines().collect(Collectors.joining(System.lineSeparator())).toString());
@@ -32,11 +37,13 @@ public class DetectionAPIController {
 
         //System.out.println("Request Info : " + resData);
 
+        int patientId = Integer.parseInt(resData.getString("id"));
         String patientName = resData.getString("name");
         String cameraNumber = resData.getString("camera_number");
         String detectionTime = resData.getString("time");
         String detectionImage = resData.getJSONObject("image").getString("img");
 
+        System.out.println("patientName : " + patientId);
         System.out.println("patientName : " + patientName);
         System.out.println("cameraNumber : " + cameraNumber);
         System.out.println("detectionTime : " + detectionTime);
@@ -60,15 +67,25 @@ public class DetectionAPIController {
         FileOutputStream fos = null;
 
         // 파일명 탐지 코드 DB 가져와서 정하기
-        DetectionDTO detectionLog =  detectionService.selectRecentDetectionInfo();
+        int recentDetectionCode =  detectionService.selectRecentDetectionInfo(patientId).getDetectionCode();
 
         try {
-            file = new File(filePath + "\\test03.png");
+            // 파일명 : detection + (탐지코드 + 1) + .png
+            String fileName = "\\detection" + (recentDetectionCode + 1) + ".png";
+            file = new File(filePath + fileName);
             fos = new FileOutputStream(file);
             bos = new BufferedOutputStream(fos);
             bos.write(decodeBytes);
 
-            // 파일경로 등 탐지로그 테이블에 저장하기(insert)
+            DetectionDTO detectionInfo = new DetectionDTO();
+            detectionInfo.setDetectionLocation(cameraNumber);
+            detectionInfo.setDetectionDate(detectionTime);
+            detectionInfo.setPatientCode(patientId);
+            detectionInfo.setImagePath(filePath);
+            detectionInfo.setImageName(fileName);
+
+            System.out.println(detectionInfo);
+            detectionService.insertDetectionInfo(detectionInfo);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -96,6 +113,11 @@ public class DetectionAPIController {
 
     @GetMapping("/aa")
     public String example() {
+
+        int patientId = 1;
+        DetectionDTO recentDetectionInfo = detectionService.selectRecentDetectionInfo(patientId);
+
+        System.out.println(recentDetectionInfo);
 
         return "Hello World";
     }

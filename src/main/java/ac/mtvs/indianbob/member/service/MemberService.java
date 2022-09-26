@@ -9,9 +9,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
-
 public class MemberService {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -49,5 +50,10 @@ public class MemberService {
         if (!passwordEncoder.matches(memberDTO.getStaffPw(), member.getStaffPw())) {
             log.info("[AuthService] Password Match Fail!!!!!!!!!!!!");
         }
+    }
+
+    public List<MemberDTO> findMemberAll(MemberDTO memberDTO) {
+
+        return mapper.findMemberAll();
     }
 }
