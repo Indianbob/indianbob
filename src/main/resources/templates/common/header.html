@@ -6,5 +6,8 @@
 </head>
 <body>
   <div class="header"><a href="/">HEADER</a></div>
+  <p
+          th:text="${ #authentication.getPrincipal().getNickname() }"
+  >
 </body>
 </html>
