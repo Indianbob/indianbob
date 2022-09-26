@@ -1,8 +1,10 @@
 package ac.mtvs.indianbob.detection.controller;
 
 import ac.mtvs.indianbob.detection.model.dto.DetectionInfoResponse;
+import ac.mtvs.indianbob.detection.model.dto.DetectionDTO;
+import ac.mtvs.indianbob.detection.model.service.DetectionService;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +17,13 @@ import java.util.stream.Collectors;
 @RequestMapping("/detection")
 public class DetectionAPIController {
 
-    @PostMapping ("/info")
+    private final DetectionService detectionService;
+
+    public DetectionAPIController(DetectionService detectionService) {
+        this.detectionService = detectionService;
+    }
+
+    @GetMapping ("/info")
     public DetectionInfoResponse detectionInfoAPI(HttpServletRequest resquest) throws IOException {
 
         JSONObject resData = new JSONObject(resquest.getReader().lines().collect(Collectors.joining(System.lineSeparator())).toString());
@@ -47,17 +55,19 @@ public class DetectionAPIController {
         if(!dir.exists() && !dir.isDirectory()) {
             dir.mkdirs();
         }
-        
+
         BufferedOutputStream bos = null;
         FileOutputStream fos = null;
-        
+
         // 파일명 탐지 코드 DB 가져와서 정하기
+        DetectionDTO detectionLog =  detectionService.selectRecentDetectionInfo();
+
         try {
             file = new File(filePath + "\\test03.png");
             fos = new FileOutputStream(file);
             bos = new BufferedOutputStream(fos);
             bos.write(decodeBytes);
-            
+
             // 파일경로 등 탐지로그 테이블에 저장하기(insert)
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,5 +92,11 @@ public class DetectionAPIController {
         detectionInfoResponse.setMessage("successfully request completed");
 
         return detectionInfoResponse;
+    }
+
+    @GetMapping("/aa")
+    public String example() {
+
+        return "Hello World";
     }
 }

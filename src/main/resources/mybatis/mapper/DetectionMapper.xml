@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ac.mtvs.indianbob.detection.model.dao.DetectionMapper">
+    <select id="selectRecentDetectionInfo" resultType="DetectionDTO">
+        SELECT A.*
+          FROM DETECTION_LOG A
+         WHERE A.DETECTION_CODE = MAX(A.DETECTION_CODE)
+    </select>
+</mapper>
