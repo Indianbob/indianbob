@@ -8,4 +8,6 @@ public interface DetectionMapper {
     DetectionDTO selectRecentDetectionInfo(int patientId);
 
     boolean insertDetectionInfo(DetectionDTO detectionInfo);
+
+    DetectionDTO selectDetectionByPatientCode(int patientCode);
 }
