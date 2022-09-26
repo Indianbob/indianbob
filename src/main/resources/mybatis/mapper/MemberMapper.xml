@@ -12,12 +12,12 @@
         <result column="staffPhone" property="STAFF_PHONE" />
     </resultMap>
 
-<!--    <select id="selectMemberById" resultType="string">-->
-<!--        SELECT-->
-<!--            A.STAFF_CODE-->
-<!--        FROM STAFF A-->
-<!--          AND A.STAFF_CODE = #{ staffCode }-->
-<!--    </select>-->
+    <select id="selectMemberById" resultType="string">
+        SELECT
+            A.STAFF_ID
+        FROM STAFF A
+          AND A.STAFF_ID = #{ staffId }
+    </select>
 
     <select id="findMemberAll" resultType="MemberDTO">
         SELECT

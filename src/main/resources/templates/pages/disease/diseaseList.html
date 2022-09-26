@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/disease.css}">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="/common/header.html"></div>
+<table id="customers">
+    <h1>질병 목록</h1>
+    <tr>
+        <th>No</th>
+        <th>Disease</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>치매</td>
+        <td>질병 설명</td>
+    </tr>
+</table>
+</body>
+</html>
