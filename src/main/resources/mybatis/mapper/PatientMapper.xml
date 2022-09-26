@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ac.mtvs.indianbob.patient.model.dao.PatientMapper">
+
+    <resultMap id="PatientDTO" type="PatientDTO">
+        <id column="patientCode" property="PATIENT_CODE" />
+        <result column="patientName" property="PATIENT_NAME" />
+        <result column="patientBirth" property="PATIENT_BIRTH" />
+        <result column="guardianPhone" property="GUARDIAN_PHONE" />
+        <result column="guardianName" property="GUARDIAN_NAME" />
+        <result column="patientRelationship" property="PATIENT_RELATIONSHIP" />
+        <result column="patientAddress" property="PATIENT_ADDRESS" />
+        <result column="patientPhone" property="PATIENT_PHONE" />
+        <result column="patientPicture" property="PATIENT_PICTURE" />
+        <result column="explanation" property="EXPLANATION" />
+        <result column="entranceDate" property="ENTRANCE_DATE" />
+        <result column="exitDate" property="EXIT_DATE" />
+        <result column="exitYn" property="EXIT_YN" />
+        <result column="manageStaffCode" property="MANAGE_STAFF_CODE" />
+        <result column="patientGender" property="PATIENT_GENDER" />
+    </resultMap>
+
+    <select id="selectAllPatient" resultType="PatientDTO">
+        SELECT
+            A.PATIENT_CODE
+          , A.PATIENT_NAME
+          , A.PATIENT_BIRTH
+          , A.GUARDIAN_PHONE
+          , A.GUARDIAN_NAME
+          , A.PATIENT_RELATIONSHIP
+          , A.PATIENT_ADDRESS
+          , A.PATIENT_PHONE
+          , A.PATIENT_PICTURE
+          , A.EXPLANATION
+          , A.ENTRANCE_DATE
+          , A.EXIT_DATE
+          , A.EXIT_YN
+          , A.MANAGE_STAFF_CODE
+          , A.PATIENT_GENDER
+        FROM PATIENT A
+    </select>
+
+</mapper>
