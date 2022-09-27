@@ -64,4 +64,15 @@
        WHERE PATIENT_CODE = #{ patientCode }
     </select>
 
+
+    <select id="selectAllPatientApi" resultType="PatientApiDTO">
+        SELECT
+             A.PATIENT_CODE
+             , A.PATIENT_NAME
+             , A.PATIENT_BIRTH
+             , A.PATIENT_PICTURE
+        FROM PATIENT A
+       WHERE A.PATIENT_CODE=1
+    </select>
+
 </mapper>

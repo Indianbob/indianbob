@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-  <div class="header"><a href="/">HEADER</a></div>
-<!--  <p-->
-<!--          th:text="${ #authentication.getPrincipal().getNickname() }"-->
-<!--  >-->
+  <div class="header"><span sec:authentication="principal.staffName"></span>님의 방문을 환영합니다.</div>
 </body>
 </html>
