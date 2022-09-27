@@ -25,20 +25,18 @@
 
         <table class="patientListTable">
             <tr>
-                <td>번호</td>
-                <td>이름</td>
-                <td>생년월일/나이(만)</td>
+                <td>환자 번호</td>
+                <td>환자 이름</td>
+                <td>생년월일</td>
                 <td>지병(상세보기)</td>
             </tr>
             <th:block>
-
             <tr  th:each="patient: ${patientList}">
-                <td><a th:href="|/patient/detail/${patient.num}|" th:text="${patient.num}" ></a> </td>
-                <td><a th:href="|/patient/detail/${patient.num}|" th:text="${patient.name}" ></a></td>
-                <td><a th:href="|/patient/detail/${patient.num}|" th:text="${patient.birth}" ></a></td>
-                <td><a th:href="|/patient/detail/${patient.num}|" th:text="${patient.disease}" ></a></td>
+                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
+                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
+                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
+                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientPhone}" ></a></td>
             </tr>
-
             </th:block>
         </table>
 
