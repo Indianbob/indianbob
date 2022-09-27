@@ -23,6 +23,13 @@ public class PatientService {
         return result;
     }
 
+    public PatientDTO selectPatientByPatientCode(int patientCode){
+
+        PatientDTO result = mapper.selectPatientByPatientCode(patientCode);
+
+        return result;
+    }
+
     public List<PatientApiDTO> selectAllPatientApi() {
 
         List<PatientApiDTO> result = mapper.selectAllPatientApi();

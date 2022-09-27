@@ -43,6 +43,28 @@
         FROM PATIENT A
     </select>
 
+    <select id="selectPatientByPatientCode" resultType="PatientDTO">
+        SELECT
+            A.PATIENT_CODE
+             , A.PATIENT_NAME
+             , A.PATIENT_BIRTH
+             , A.GUARDIAN_PHONE
+             , A.GUARDIAN_NAME
+             , A.PATIENT_RELATIONSHIP
+             , A.PATIENT_ADDRESS
+             , A.PATIENT_PHONE
+             , A.PATIENT_PICTURE
+             , A.EXPLANATION
+             , A.ENTRANCE_DATE
+             , A.EXIT_DATE
+             , A.EXIT_YN
+             , A.MANAGE_STAFF_CODE
+             , A.PATIENT_GENDER
+        FROM PATIENT A
+       WHERE PATIENT_CODE = #{ patientCode }
+    </select>
+
+
     <select id="selectAllPatientApi" resultType="PatientApiDTO">
         SELECT
              A.PATIENT_CODE
@@ -50,6 +72,7 @@
              , A.PATIENT_BIRTH
              , A.PATIENT_PICTURE
         FROM PATIENT A
+       WHERE A.PATIENT_CODE=1
     </select>
 
 </mapper>

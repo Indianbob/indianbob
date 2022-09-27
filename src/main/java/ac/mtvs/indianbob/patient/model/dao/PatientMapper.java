@@ -11,5 +11,7 @@ public interface PatientMapper {
 
     List<PatientDTO> selectAllPatient();
 
+    PatientDTO selectPatientByPatientCode(int patientCode);
+    
     List<PatientApiDTO> selectAllPatientApi();
 }
