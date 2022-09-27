@@ -75,7 +75,14 @@
                     <div class="smallView">화면3</div>
                     <div class="smallView">화면4</div>
                 </div>
-                <div id="targetView" class="targetView"></div>
+                <div id="targetView" class="targetView">
+                    <div th:with="detection=${ recentDetection }">
+                        <div th:text="|탐지 번호 : ${ detection.detectionCode }|"/>
+                        <div th:text="|탐지 시간 : ${ detection.detectionDate }|"/>
+                        <div th:text="|탐지 위치 : ${ detection.detectionLocation}|"/>
+                        <img th:src="|localhost:${ detection.imagePath}${ detection.imageName}|"/>
+                    </div>
+                </div>
                 <div class="backBox">
                     <button class="back">목록</button>
                     <button id="request" class="back">요청</button>
@@ -84,7 +91,16 @@
             <div class="userBox">
                 <div class="userLayout">
                     <div id="userImage" class="userImage"></div>
-                    <div class="userInfo">정보</div>
+                    <div class="userInfo">
+                        <div th:with="patient=${patient}">
+                            <div th:text="${patient.patientName}"/>
+                            <div th:text="${patient.patientPhone}"/>
+                            <div th:text="${patient.patientAddress}"/>
+                            <div th:text="${patient.patientBirth}"/>
+                            <div th:text="${patient.patientGender}"/>
+                            <img th:src="${patient.patientPicture}"/>
+                        </div>
+                    </div>
                     <div class="detailBox">
                         <button class="detail">상세보기</button>
                     </div>

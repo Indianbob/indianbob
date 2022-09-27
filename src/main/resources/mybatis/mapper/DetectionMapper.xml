@@ -4,6 +4,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ac.mtvs.indianbob.detection.model.dao.DetectionMapper">
 
+    <resultMap id="DetectionPatientResultMap" type="ac.mtvs.indianbob.detection.model.dto.DetectionPatientDTO">
+        <id property="detectionCode" column="DETECTION_CODE"/>
+        <result property="detectionDate" column="DETECTION_DATE"/>
+        <result property="detectionLocation" column="DETECTION_LOCATION"/>
+        <result property="patientCode" column="PATIENT_CODE"/>
+        <result property="imagePath" column="IMAGE_PATH"/>
+        <result property="imageName" column="IMAGE_NAME"/>
+
+        <association property="patient" resultMap="patientResultMap"/>
+    </resultMap>
+
+    <resultMap id="patientResultMap" type="ac.mtvs.indianbob.patient.model.dto.PatientDTO">
+        <id property="patientCode" column="PATIENT_CODE" />
+        <result property="patientName" column="PATIENT_NAME" />
+        <result property="patientBirth" column="PATIENT_BIRTH" />
+        <result property="guardianPhone" column="GUARDIAN_PHONE" />
+        <result property="guardianName" column="GUARDIAN_NAME" />
+        <result property="patientRelationship" column="PATIENT_RELATIONSHIP" />
+        <result property="patientAddress" column="PATIENT_ADDRESS" />
+        <result property="patientPhone" column="PATIENT_PHONE" />
+        <result property="patientPicture" column="PATIENT_PICTURE" />
+        <result property="explanation" column="EXPLANATION" />
+        <result property="entranceDate" column="ENTRANCE_DATE" />
+        <result property="exitDate" column="EXIT_DATE" />
+        <result property="exitYn" column="EXIT_YN" />
+        <result property="manageStaffCode" column="MANAGE_STAFF_CODE" />
+        <result property="patientGender" column="PATIENT_GENDER" />
+    </resultMap>
+
+    <select id="selectAllDetection" resultType="DetectionDTO">
+        SELECT A.*
+        FROM DETECTION_LOG A
+    </select>
+
     <select id="selectRecentDetectionInfo" resultType="DetectionDTO">
         SELECT A.*
           FROM DETECTION_LOG A
@@ -13,7 +47,25 @@
     <select id="selectDetectionByPatientCode" resultType="DetectionDTO">
         SELECT A.*
         FROM DETECTION_LOG A
-        WHERE A.DETECTION_CODE = #{ patientCode }
+        WHERE A.PATIENT_CODE = #{ patientCode }
+    </select>
+
+    <select id="selectRecentDetectionByPatientCode" resultType="DetectionDTO">
+        SELECT A.*
+        FROM DETECTION_LOG A
+        WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM (
+                                     SELECT C.*
+                                     FROM DETECTION_LOG C
+                                     WHERE C.PATIENT_CODE = #{ patientCode }
+                                     ) B
+                                 )
+    </select>
+
+    <select id="selectAllDetectionPatient" resultMap="DetectionPatientResultMap">
+        SELECT A.*
+             , B.*
+        FROM DETECTION_LOG A
+        LEFT JOIN PATIENT B ON (A.PATIENT_CODE = B.PATIENT_CODE)
     </select>
 
     <insert id="insertDetectionInfo" parameterType="DetectionDTO">
@@ -28,6 +80,5 @@
              , #{ imagePath }
              , #{ imageName }
              )
-
     </insert>
 </mapper>

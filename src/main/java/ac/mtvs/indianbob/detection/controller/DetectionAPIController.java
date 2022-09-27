@@ -57,7 +57,7 @@ public class DetectionAPIController {
 
         // 파일로 저장
         File file = null;
-        String filePath = "D:\\indianbob\\indianbob\\src\\main\\resources\\static\\images\\detection";
+        String filePath = "/images/detection";
         File dir = new File(filePath);
         if(!dir.exists() && !dir.isDirectory()) {
             dir.mkdirs();
@@ -71,7 +71,7 @@ public class DetectionAPIController {
 
         try {
             // 파일명 : detection + (탐지코드 + 1) + .png
-            String fileName = "\\detection" + (recentDetectionCode + 1) + ".png";
+            String fileName = "/detection" + (recentDetectionCode + 1) + ".png";
             file = new File(filePath + fileName);
             fos = new FileOutputStream(file);
             bos = new BufferedOutputStream(fos);

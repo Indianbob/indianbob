@@ -19,7 +19,13 @@ public class PatientService {
 
         List<PatientDTO> result = mapper.selectAllPatient();
 
-        System.out.println("aaa");
+        return result;
+    }
+
+    public PatientDTO selectPatientByPatientCode(int patientCode){
+
+        PatientDTO result = mapper.selectPatientByPatientCode(patientCode);
+
         return result;
     }
 

@@ -11,7 +11,7 @@ public class PatientDTO {
     private String patientRelationship;
     private String patientAddress;
     private String patientPhone;
-    private String getPatientPicture;
+    private String patientPicture;
     private String explanation;
     private java.sql.Date entranceDate;
     private java.sql.Date exitDate;
@@ -19,11 +19,10 @@ public class PatientDTO {
     private int manageStaffCode;
     private String patientGender;
 
-    public PatientDTO() {}
+    public PatientDTO() {
+    }
 
-    public PatientDTO(int patientCode, String patientName, int patientBirth, String guardianPhone, String guardianName,
-                      String patientRelationship, String patientAddress, String patientPhone, String getPatientPicture,
-                      String explanation, Date entranceDate, Date exitDate, String exitYn, int manageStaffCode, String patientGender) {
+    public PatientDTO(int patientCode, String patientName, int patientBirth, String guardianPhone, String guardianName, String patientRelationship, String patientAddress, String patientPhone, String patientPicture, String explanation, Date entranceDate, Date exitDate, String exitYn, int manageStaffCode, String patientGender) {
         this.patientCode = patientCode;
         this.patientName = patientName;
         this.patientBirth = patientBirth;
@@ -32,34 +31,13 @@ public class PatientDTO {
         this.patientRelationship = patientRelationship;
         this.patientAddress = patientAddress;
         this.patientPhone = patientPhone;
-        this.getPatientPicture = getPatientPicture;
+        this.patientPicture = patientPicture;
         this.explanation = explanation;
         this.entranceDate = entranceDate;
         this.exitDate = exitDate;
         this.exitYn = exitYn;
         this.manageStaffCode = manageStaffCode;
         this.patientGender = patientGender;
-    }
-
-    @Override
-    public String toString() {
-        return "PatientDTO{" +
-                "patientCode=" + patientCode +
-                ", patientName='" + patientName + '\'' +
-                ", patientBirth=" + patientBirth +
-                ", guardianPhone='" + guardianPhone + '\'' +
-                ", guardianName='" + guardianName + '\'' +
-                ", patientRelationship='" + patientRelationship + '\'' +
-                ", patientAddress='" + patientAddress + '\'' +
-                ", patientPhone='" + patientPhone + '\'' +
-                ", getPatientPicture='" + getPatientPicture + '\'' +
-                ", explanation='" + explanation + '\'' +
-                ", entranceDate=" + entranceDate +
-                ", exitDate=" + exitDate +
-                ", exitYn='" + exitYn + '\'' +
-                ", manageStaffCode=" + manageStaffCode +
-                ", patientGender='" + patientGender + '\'' +
-                '}';
     }
 
     public int getPatientCode() {
@@ -126,12 +104,12 @@ public class PatientDTO {
         this.patientPhone = patientPhone;
     }
 
-    public String getGetPatientPicture() {
-        return getPatientPicture;
+    public String getPatientPicture() {
+        return patientPicture;
     }
 
-    public void setGetPatientPicture(String getPatientPicture) {
-        this.getPatientPicture = getPatientPicture;
+    public void setPatientPicture(String patientPicture) {
+        this.patientPicture = patientPicture;
     }
 
     public String getExplanation() {
@@ -180,5 +158,26 @@ public class PatientDTO {
 
     public void setPatientGender(String patientGender) {
         this.patientGender = patientGender;
+    }
+
+    @Override
+    public String toString() {
+        return "PatientDTO{" +
+                "patientCode=" + patientCode +
+                ", patientName='" + patientName + '\'' +
+                ", patientBirth=" + patientBirth +
+                ", guardianPhone='" + guardianPhone + '\'' +
+                ", guardianName='" + guardianName + '\'' +
+                ", patientRelationship='" + patientRelationship + '\'' +
+                ", patientAddress='" + patientAddress + '\'' +
+                ", patientPhone='" + patientPhone + '\'' +
+                ", patientPicture='" + patientPicture + '\'' +
+                ", explanation='" + explanation + '\'' +
+                ", entranceDate=" + entranceDate +
+                ", exitDate=" + exitDate +
+                ", exitYn='" + exitYn + '\'' +
+                ", manageStaffCode=" + manageStaffCode +
+                ", patientGender='" + patientGender + '\'' +
+                '}';
     }
 }
