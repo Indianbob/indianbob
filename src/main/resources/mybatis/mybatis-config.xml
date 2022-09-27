@@ -12,6 +12,7 @@
         <typeAlias alias="MemberDTO" type="ac.mtvs.indianbob.member.dto.MemberDTO" />
         <typeAlias alias="DetectionDTO" type="ac.mtvs.indianbob.detection.model.dto.DetectionDTO" />
         <typeAlias alias="PatientDTO" type="ac.mtvs.indianbob.patient.model.dto.PatientDTO" />
+        <typeAlias alias="PatientApiDTO" type="ac.mtvs.indianbob.patient.model.dto.PatientApiDTO" />
     </typeAliases>
 
     <mappers>

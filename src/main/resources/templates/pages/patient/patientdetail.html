@@ -12,18 +12,19 @@
     <div class="patientDetailPage">
     <hr/><br/>
 
-    <img src="/images/patient/Obama.jpg" class="patientImg"/>
-
-    <div class="patientDetailInfo">
-    <div class="patientDetailInfoContent" th:text="|이름 : ${patient.name}|"></div>
-    <div class="patientDetailInfoContent" th:text="|생년월일/나이(만) : ${patient.birth}|"></div>
-    <div class="patientDetailInfoContent" th:text="|성별 : ${patient.gender}|"></div>
-    <div class="patientDetailInfoContent" th:text="|지병 : ${patient.disease}|"></div>
-    </div>
+    <img th:src="${patientList[(code)-1].patientPicture}" class="patientImg"/>
+    <th:block>
+        <div class="patientDetailInfo">
+        <div class="patientDetailInfoContent" th:text="|이름 : ${patientList[(code)-1].patientName}|"></div>
+        <div class="patientDetailInfoContent" th:text="|생년월일 : ${patientList[(code)-1].patientCode}|"></div>
+        <div class="patientDetailInfoContent" th:text="|성별 : ${patientList[(code)-1].patientGender}|"></div>
+        <div class="patientDetailInfoContent" th:text="|주소 : ${patientList[(code)-1].patientAddress}|"></div>
+        </div>
+    </th:block>
 
     <table class="noticeTable">
         <tr> <td style="border-bottom:dotted">특이사항</td> </tr>
-        <tr> <td style="padding:15px" th:text="${script}"></td> </tr>
+        <tr> <td style="padding:15px" th:text="${patientList[(code)-1].explanation}"></td> </tr>
     </table>
         <br/>
 

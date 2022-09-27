@@ -43,4 +43,13 @@
         FROM PATIENT A
     </select>
 
+    <select id="selectAllPatientApi" resultType="PatientApiDTO">
+        SELECT
+             A.PATIENT_CODE
+             , A.PATIENT_NAME
+             , A.PATIENT_BIRTH
+             , A.PATIENT_PICTURE
+        FROM PATIENT A
+    </select>
+
 </mapper>
