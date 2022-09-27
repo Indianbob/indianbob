@@ -3,10 +3,12 @@ server:
 
 spring:
   devtools:
-    restart:
-      enabled: false
     livereload:
       enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
 
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver

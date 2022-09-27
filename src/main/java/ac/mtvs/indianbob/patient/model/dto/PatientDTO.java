@@ -1,7 +1,12 @@
 package ac.mtvs.indianbob.patient.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Date;
 
+@Getter
+@Setter
 public class PatientDTO {
     private int patientCode;
     private String patientName;
@@ -19,10 +24,12 @@ public class PatientDTO {
     private int manageStaffCode;
     private String patientGender;
 
-    public PatientDTO() {
-    }
+    public PatientDTO() {};
 
-    public PatientDTO(int patientCode, String patientName, int patientBirth, String guardianPhone, String guardianName, String patientRelationship, String patientAddress, String patientPhone, String patientPicture, String explanation, Date entranceDate, Date exitDate, String exitYn, int manageStaffCode, String patientGender) {
+    public PatientDTO(int patientCode, String patientName, int patientBirth, String guardianPhone,
+                      String guardianName, String patientRelationship, String patientAddress, String patientPhone,
+                      String patientPicture, String explanation, Date entranceDate, Date exitDate, String exitYn,
+                      int manageStaffCode, String patientGender) {
         this.patientCode = patientCode;
         this.patientName = patientName;
         this.patientBirth = patientBirth;
@@ -38,6 +45,27 @@ public class PatientDTO {
         this.exitYn = exitYn;
         this.manageStaffCode = manageStaffCode;
         this.patientGender = patientGender;
+    }
+
+    @Override
+    public String toString() {
+        return "PatientDTO{" +
+                "patientCode=" + patientCode +
+                ", patientName='" + patientName + '\'' +
+                ", patientBirth=" + patientBirth +
+                ", guardianPhone='" + guardianPhone + '\'' +
+                ", guardianName='" + guardianName + '\'' +
+                ", patientRelationship='" + patientRelationship + '\'' +
+                ", patientAddress='" + patientAddress + '\'' +
+                ", patientPhone='" + patientPhone + '\'' +
+                ", patientPicture='" + patientPicture + '\'' +
+                ", explanation='" + explanation + '\'' +
+                ", entranceDate=" + entranceDate +
+                ", exitDate=" + exitDate +
+                ", exitYn='" + exitYn + '\'' +
+                ", manageStaffCode=" + manageStaffCode +
+                ", patientGender='" + patientGender + '\'' +
+                '}';
     }
 
     public int getPatientCode() {
@@ -158,26 +186,5 @@ public class PatientDTO {
 
     public void setPatientGender(String patientGender) {
         this.patientGender = patientGender;
-    }
-
-    @Override
-    public String toString() {
-        return "PatientDTO{" +
-                "patientCode=" + patientCode +
-                ", patientName='" + patientName + '\'' +
-                ", patientBirth=" + patientBirth +
-                ", guardianPhone='" + guardianPhone + '\'' +
-                ", guardianName='" + guardianName + '\'' +
-                ", patientRelationship='" + patientRelationship + '\'' +
-                ", patientAddress='" + patientAddress + '\'' +
-                ", patientPhone='" + patientPhone + '\'' +
-                ", patientPicture='" + patientPicture + '\'' +
-                ", explanation='" + explanation + '\'' +
-                ", entranceDate=" + entranceDate +
-                ", exitDate=" + exitDate +
-                ", exitYn='" + exitYn + '\'' +
-                ", manageStaffCode=" + manageStaffCode +
-                ", patientGender='" + patientGender + '\'' +
-                '}';
     }
 }

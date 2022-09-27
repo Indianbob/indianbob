@@ -80,7 +80,7 @@
                         <div th:text="|탐지 번호 : ${ detection.detectionCode }|"/>
                         <div th:text="|탐지 시간 : ${ detection.detectionDate }|"/>
                         <div th:text="|탐지 위치 : ${ detection.detectionLocation}|"/>
-                        <img th:src="|localhost:${ detection.imagePath}${ detection.imageName}|"/>
+                        <img th:src="|${ detection.imagePath}/${ detection.imageName}|"/>
                     </div>
                 </div>
                 <div class="backBox">

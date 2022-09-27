@@ -1,6 +1,7 @@
 package ac.mtvs.indianbob.patient.PatientService;
 
 import ac.mtvs.indianbob.patient.model.dao.PatientMapper;
+import ac.mtvs.indianbob.patient.model.dto.PatientApiDTO;
 import ac.mtvs.indianbob.patient.model.dto.PatientDTO;
 import org.springframework.stereotype.Service;
 
@@ -29,4 +30,10 @@ public class PatientService {
         return result;
     }
 
+    public List<PatientApiDTO> selectAllPatientApi() {
+
+        List<PatientApiDTO> result = mapper.selectAllPatientApi();
+
+        return result;
+    }
 }
