@@ -52,4 +52,6 @@
         FROM PATIENT A
     </select>
 
+
+
 </mapper>
