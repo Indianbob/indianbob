@@ -3,10 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<link rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous">
 
 <th:block layout:fragment="content">
     <!-- Begin Page Content -->
@@ -17,7 +13,7 @@
             <h2 style="text-align: center">질병 리스트</h2>
             <div class="table-area">
 
-                <table class="table table-responsive table-bordered table-striped">
+                <table align="center" id="listArea">
                     <tr>
                         <th>질병코드</th>
                         <th style="width: 300px">질병명</th>
@@ -31,6 +27,8 @@
                         <td th:text="${ disease.illnessName }"></td>
                         <td th:text="${ disease.illnessDesc }"></td>
                     </tr>
+
+
                 </table>
             </div>
 
