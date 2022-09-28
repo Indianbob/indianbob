@@ -28,9 +28,9 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public ModelAndView mainPage(ModelAndView mv) {
+    public ModelAndView loginPage(ModelAndView mv) {
 
-        mv.setViewName("/main/main");
+        mv.setViewName("pages/member/login");
 
         return mv;
     }
