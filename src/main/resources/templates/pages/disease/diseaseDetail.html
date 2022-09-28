@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<th:block layout:fragment="content">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+
+
+    <div class="outer outer-notice-detail">
+      <br>
+      <h2 align="center">질병 자세히 보기</h2>
+      <div class="table-area">
+        <table align="center">
+          <tr>
+            <td>질병 코드</td>
+            <td colspan="3"><p th:text="${ disease.illnessCode }"></p></td>
+          </tr>
+          <tr>
+            <td>질병명 </td>
+            <td><p th:text="${ disease.illnessName }"></p></td>
+          </tr>
+          <tr>
+            <td>내용 </td>
+            <td colspan="3">
+                                <textarea
+                                        style="resize:none; width:90%; height:200px; resize:none;"
+                                        th:text="${ disease.illnessDesc }"
+                                        readonly
+                                ></textarea>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <div align="center">
+          <button
+                  type="button"
+                  class="btn btn-or"
+                  th:onclick="'location.href=\'/disease/list\''"
+          >
+            돌아가기
+          </button>
+
+            <button
+                    class="btn btn-or"
+                    th:onclick="'location.href=\'/disease/update?no='+ @{${ disease.illnessCode }} + '\''"
+            >
+              수정하기
+            </button>
+            <button
+                    class="btn btn-bs"
+                    th:onclick="'location.href=\'/disease/delete?no='+ @{${ disease.illnessCode }} + '\''"
+            >
+              삭제하기
+            </button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</th:block>
+
+</html>

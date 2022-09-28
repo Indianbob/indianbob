@@ -17,7 +17,7 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-<!--        인증 및 인가 설정 시 주석 해제-->
+<!--        인증 및 인가 설정 시 주석 해제 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
