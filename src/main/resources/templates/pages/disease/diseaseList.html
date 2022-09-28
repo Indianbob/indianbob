@@ -17,6 +17,7 @@
                     <tr>
                         <th>질병코드</th>
                         <th style="width: 300px">질병명</th>
+                        <th style="width: 300px">질병설명</th>
                     </tr>
 
                     <tr
@@ -24,6 +25,7 @@
                     >
                         <td th:text="${ disease.illnessCode }"></td>
                         <td th:text="${ disease.illnessName }"></td>
+                        <td th:text="${ disease.illnessDesc }"></td>
                     </tr>
 
 
@@ -39,7 +41,7 @@
                 <button class="btn btn-bs" type="submit">검색하기</button>
 
 
-                <button class="btn btn-or" id="writeNotice">작성하기</button>
+                <button class="btn btn-or" id="writeNotice" th:onclick="|location.href='@{/disease/regist}'|">작성하기</button>
 
             </div>
 
@@ -79,7 +81,7 @@
 
             $tds[i].onclick = function() {
                 const no = this.parentNode.children[0].innerText;
-                location.href = "/notice/detail?no=" + no;
+                location.href = "/disease/detail?no=" + no;
             }
         }
     }
