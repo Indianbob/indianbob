@@ -12,12 +12,12 @@
             <div class="patientInsertImg"><p style="margin-top:90px">이미지 추가</p></div>
             <hr/>
 
+            <form action="" method="post">
             <table class="patientInsertInfo">
                 <tr> <td>이름</td> <td><input type="text" name="name" id="name" class="patientInputBoxTop"></td> </tr>
                 <tr> <td>생년월일/나이(만) </td> <td><input type="text" name="birth" id="birth" class="patientInputBoxTop"></td> </tr>
                 <tr> <td>성별</td> <td><input type="text" name="gender" id="gender" class="patientInputBoxTop"></td> </tr>
                 <tr> <td>주소</td> <td><input type="text" name="address" id="address" class="patientInputBoxTop"></td> </tr>
-                <tr> <td>입원날짜</td> <td><input type="text" name="entaranceDate" id="entaranceDate" class="patientInputBoxTop" ></td> </tr>
             </table>
         </div>
         <hr/>
@@ -33,9 +33,11 @@
             <tr> <td>환자와의 관계</td> <td><input class="patientInputBoxBottom" type="text" name="guardianRelation" id="guardianRelation"></td> </tr>
             <tr> <td>보호자 연락처</td> <td><input class="patientInputBoxBottom" type="text" name="guardianPhone" id="guardianPhone"></td> </tr>
         </table>
+
         <hr/>
 
         <button class="patientInsertCompletedButton" th:onclick="|location.href='@{/patient}'|">완료</button>
+        </form>
 
     </div>
     <h1>+++footer+++</h1>

@@ -15,24 +15,15 @@
         <form th:action="@{/disease/regist}" method="post">
           <table>
             <tr>
-              <td>제목 </td>
-              <td><input type="text" size="50" name="title"></td>
+              <td>질병명 </td>
+              <td><input type="text" size="50" name="illnessName"></td>
             </tr>
             <tr>
-              <td>작성자 </td>
-              <td>
-                <p
-                        th:text="${ #authentication.getPrincipal().getNickname() }"
-                >
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>내용 </td>
+              <td>설명 </td>
             </tr>
             <tr>
               <td colspan="2">
-                <textarea name="body" cols="60" rows="15" style="resize:none;" required></textarea>
+                <textarea name="illnessDesc" cols="60" rows="15" style="resize:none;"></textarea>
               </td>
             </tr>
           </table>
@@ -41,7 +32,7 @@
             <button
                     type="button"
                     class="btn btn-pk"
-                    th:onclick="'location.href=\'notice/list\''"
+                    th:onclick="'location.href=\'disease/list\''"
             >
               돌아가기
             </button>
