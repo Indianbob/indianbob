@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface DiseaseMapper {
     List<DiseaseDTO> selectAllDiseaseList();
+
+    int insertDisease(DiseaseDTO disease);
 }

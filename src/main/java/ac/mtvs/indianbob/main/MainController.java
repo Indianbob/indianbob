@@ -35,6 +35,14 @@ public class MainController {
         return mv;
     }
 
+    @GetMapping("/main")
+    public ModelAndView mainPage(ModelAndView mv) {
+
+        mv.setViewName("main/main");
+
+        return mv;
+    }
+
     @GetMapping("/getpatientapi")
     public Object patientApi(){
         patientApi patientApi = new patientApi();

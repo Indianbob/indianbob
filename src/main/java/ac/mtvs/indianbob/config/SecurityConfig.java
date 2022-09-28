@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .formLogin()
                 .loginPage("/member/login")             //커스텀 로그인 페이지 사용
-                .defaultSuccessUrl("/")                 //로그인 성공시 이동 페이지
-//                .failureUrl("/member/loginfail")
+                .defaultSuccessUrl("/main")                 //로그인 성공시 이동 페이지
+                .failureUrl("/member/loginfail")
                 .usernameParameter("staffId")			// 아이디 파라미터명 설정
                 .passwordParameter("staffPw")			// 패스워드 파라미터명 설정
                 .and()

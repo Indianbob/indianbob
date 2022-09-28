@@ -15,4 +15,18 @@
              , A.ILLNESS_NAME
         FROM ILLNESS A
     </select>
+
+    <insert id="insertDisease" parameterType="DiseaseDTO">
+        INSERT
+        INTO ILLNESS A
+            (
+               A.ILLNESS_CODE
+             , A.ILLNESS_NAME
+        )
+        VALUES
+            (
+            SEQ_NOTICE_NO.NEXTVAL
+                , #{ illnessName }
+            )
+    </insert>
 </mapper>
