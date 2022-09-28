@@ -52,6 +52,42 @@
         FROM PATIENT A
     </select>
 
+    <insert id="insertPatient">
+        INSERT /*ac.mtvs.indianbob.patient.model.dao.PatientMapper#insertPatient()*/
+        INTO PATIENT P
+        (
+            P.PATIENT_CODE,
+            P.PATIENT_NAME,
+            P.PATIENT_BIRTH,
+            P.PATIENT_GENDER,
+            P.PATIENT_ADDRESS,
+            P.PATIENT_PHONE,
+            P.EXPLANATION,
+            P.GUARDIAN_NAME,
+            P.PATIENT_RELATIONSHIP,
+            P.GUARDIAN_PHONE,
+            P.PATIENT_PICTURE,
+            P.MANAGE_STAFF_CODE,
+            P.ENTRANCE_DATE
+        )
+        VALUES
+        (
+            SEQ_PATIENT_CODE.NEXTVAL,
+            #{ patientName },
+            #{ patientBirth },
+            #{ patientGender },
+            #{ patientAddress },
+            #{ patientPhone },
+            #{ explanation },
+            #{ guardianName },
+            #{ patientRelationship },
+            #{ guardianPhone },
+            'images/patient/Lincoln.jpg',
+            1,
+            TO_DATE(SYSDATE,'YYYY-MM-DD')
+        )
+    </insert>
+
 
 
 </mapper>

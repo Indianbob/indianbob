@@ -12,4 +12,6 @@ public interface PatientMapper {
     List<PatientDTO> selectAllPatient();
 
     List<PatientApiDTO> selectAllPatientApi();
+
+    int insertPatient(PatientDTO patient);
 }

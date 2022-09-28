@@ -4,12 +4,11 @@ import ac.mtvs.indianbob.patient.PatientService.PatientService;
 import ac.mtvs.indianbob.patient.model.dto.PatientApiDTO;
 import ac.mtvs.indianbob.patient.model.dto.PatientDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.swing.*;
 import java.util.List;
 
 @Controller
@@ -59,10 +58,26 @@ public class PatientController {
     }
 
     @GetMapping("/insert")
-    public ModelAndView patientInsert(ModelAndView mv){
+    public ModelAndView goInserter(ModelAndView mv) {
 
-        mv.setViewName("/pages/patient/patientinsert");
+        mv.setViewName("pages/patient/patientinsert");
 
         return mv;
+    }
+
+    @PostMapping("/insert")
+    public String insertPatient(@ModelAttribute PatientDTO patient, RedirectAttributes rttr){
+
+        System.out.println("PatientController PatientInsert ==============");
+        System.out.println(patient);
+
+        patientService.insertPatient(patient);
+
+        rttr.addFlashAttribute("message","환자 등록에 성공하셨습니다.");
+
+        System.out.println("===========");
+
+
+        return "redirect:/patient";
     }
 }

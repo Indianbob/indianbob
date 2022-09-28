@@ -64,4 +64,11 @@ public class MemberService {
 
         return result != null? true : false;
     }
+
+    public List<MemberDTO> selectAllMember() {
+
+        List<MemberDTO> memberList = mapper.selectAllMember();
+
+        return memberList;
+    }
 }
