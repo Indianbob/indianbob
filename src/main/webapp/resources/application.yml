@@ -1,0 +1,28 @@
+server:
+  port: 8000
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: C##NURSINGHOME_DETECTION
+    password: NURSINGHOME_DETECTION
+    url: jdbc:oracle:thin:@localhost:1521:xe
+  web:
+    resources:
+      add-mappings: true
+
+
+mybatis:
+  # mapper.xml location Setting
+  mapper-locations: mybatis/mapper/*.xml
+  # alias Setting
+  type-aliases-package: ac.mtvs.indianbob
+  configuration:
+    map-underscore-to-camel-case: true

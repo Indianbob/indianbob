@@ -4,12 +4,10 @@ import ac.mtvs.indianbob.patient.PatientService.PatientService;
 import ac.mtvs.indianbob.patient.model.dto.PatientApiDTO;
 import ac.mtvs.indianbob.patient.model.dto.PatientDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -37,10 +35,12 @@ public class PatientController {
         return mv;
     }
 
-    @GetMapping("/info")
-    public Object patientPage() {
+    @PostMapping("/info")
+    public Object patientPage(HttpServletRequest request) {
 
         List<PatientApiDTO> patientApiList = patientService.selectAllPatientApi();
+
+        System.out.println(request);
 
         return patientApiList;
     }

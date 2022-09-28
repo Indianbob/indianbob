@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.sql.Blob;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
@@ -52,39 +54,65 @@ public class DetectionAPIController {
         // 인코딩된 base64 값을 디코딩
         Base64.Decoder decoder = Base64.getDecoder();
         byte[] decodeBytes = decoder.decode(detectionImage);
-
-        //System.out.println(new String(decodeBytes));
+        System.out.println(new String(decodeBytes));
 
         // 파일로 저장
         File file = null;
+        String fileAbsolutePath = resquest.getSession().getServletContext().getRealPath("/resources/static/images/detection");
         String filePath = "/images/detection";
         File dir = new File(filePath);
         if(!dir.exists() && !dir.isDirectory()) {
             dir.mkdirs();
         }
 
-        BufferedOutputStream bos = null;
+        System.out.println(fileAbsolutePath);
+
+        Blob blobImage = null;
+        FileInputStream inputStream = null;
         FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
 
         // 파일명 탐지 코드 DB 가져와서 정하기
         int recentDetectionCode =  detectionService.selectRecentDetectionInfo(patientId).getDetectionCode();
 
         try {
             // 파일명 : detection + (탐지코드 + 1) + .png
-            String fileName = "/detection" + (recentDetectionCode + 1) + ".png";
-            file = new File(filePath + fileName);
+            String fileName = "detection" + (recentDetectionCode + 1) + ".png";
+            file = new File(fileAbsolutePath + "\\" + fileName);
             fos = new FileOutputStream(file);
             bos = new BufferedOutputStream(fos);
             bos.write(decodeBytes);
+
+            byte[] byteArray = new byte[(int)file.length()];
+            inputStream = new FileInputStream(file);
+            inputStream.read(byteArray);
+
+            blobImage = new javax.sql.rowset.serial.SerialBlob(byteArray);
+            System.out.println(byteArray);
+            System.out.println(blobImage);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            FileInputStream fis = new FileInputStream(fileAbsolutePath + "\\" + fileName);
+            byte[] buf = new byte[8192];
+            int read = 0;
+
+            while ((read=fis.read(buf, 0, buf.length)) != -1) {
+                baos.write(buf, 0, read);
+            }
+
+            byte[] returnValue = baos.toByteArray();
+            System.out.println(returnValue.toString());
 
             DetectionDTO detectionInfo = new DetectionDTO();
             detectionInfo.setDetectionLocation(cameraNumber);
             detectionInfo.setDetectionDate(detectionTime);
             detectionInfo.setPatientCode(patientId);
-            detectionInfo.setImagePath(filePath);
+            detectionInfo.setImagePath(fileAbsolutePath);
             detectionInfo.setImageName(fileName);
+            detectionInfo.setImage(blobImage.toString().getBytes());
 
             System.out.println(detectionInfo);
+
             detectionService.insertDetectionInfo(detectionInfo);
         } catch (Exception e) {
             e.printStackTrace();
