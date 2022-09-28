@@ -42,6 +42,8 @@ public class DetectionService {
     @Transactional
     public boolean insertDetectionInfo(DetectionDTO detectionInfo) {
 
+        System.out.println("service" + detectionInfo);
+
         return detectionMapper.insertDetectionInfo(detectionInfo);
     }
 

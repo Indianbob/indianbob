@@ -1,6 +1,7 @@
 package ac.mtvs.indianbob.detection.model.dto;
 
-import java.sql.Date;
+import java.util.Arrays;
+
 
 public class DetectionDTO {
     private int detectionCode;
@@ -9,17 +10,19 @@ public class DetectionDTO {
     private int patientCode;
     private String imagePath;
     private String imageName;
+    private byte[] image;
 
     public DetectionDTO() {
     }
 
-    public DetectionDTO(int detectionCode, String detectionDate, String detectionLocation, int patientCode, String imagePath, String imageName) {
+    public DetectionDTO(int detectionCode, String detectionDate, String detectionLocation, int patientCode, String imagePath, String imageName, byte[] image) {
         this.detectionCode = detectionCode;
         this.detectionDate = detectionDate;
         this.detectionLocation = detectionLocation;
         this.patientCode = patientCode;
         this.imagePath = imagePath;
         this.imageName = imageName;
+        this.image = image;
     }
 
     public int getDetectionCode() {
@@ -70,6 +73,14 @@ public class DetectionDTO {
         this.imageName = imageName;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "DetectionDTO{" +
@@ -79,6 +90,7 @@ public class DetectionDTO {
                 ", patientCode=" + patientCode +
                 ", imagePath='" + imagePath + '\'' +
                 ", imageName='" + imageName + '\'' +
+                ", image=" + Arrays.toString(image).getBytes() +
                 '}';
     }
 }

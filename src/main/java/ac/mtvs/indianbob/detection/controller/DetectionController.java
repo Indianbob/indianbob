@@ -39,6 +39,7 @@ public class DetectionController {
         // 회원 코드로 최근 탐지 정보 조회
         // mv에 회원 정보 및 탐지 정보 추가 후 타임리프에서 사용
 
+
         mv.addObject("patient", patient);
         mv.addObject("recentDetection", recentDetection);
         mv.setViewName("detection/detail");
