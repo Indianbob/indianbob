@@ -61,7 +61,11 @@
              , A.MANAGE_STAFF_CODE
              , A.PATIENT_GENDER
         FROM PATIENT A
+<<<<<<< HEAD
         WHERE A.PATIENT_CODE = #{ patientCode }
+=======
+       WHERE A.PATIENT_CODE = #{ patientCode }
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
     </select>
 
     <select id="selectAllPatientApi" resultType="PatientApiDTO">

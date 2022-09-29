@@ -3,6 +3,7 @@ package ac.mtvs.indianbob.detection.model.service;
 import ac.mtvs.indianbob.detection.model.dao.DetectionMapper;
 import ac.mtvs.indianbob.detection.model.dto.DetectionDTO;
 import ac.mtvs.indianbob.detection.model.dto.DetectionPatientDTO;
+import ac.mtvs.indianbob.paging.SelectCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,5 +51,10 @@ public class DetectionService {
     public DetectionDTO selectRecentDetectionByPatientCode(int patientCode) {
 
         return detectionMapper.selectRecentDetectionByPatientCode(patientCode);
+    }
+
+    public List<DetectionPatientDTO> selectPagenationDetectionPatient(SelectCriteria selectCriteria) {
+
+        return detectionMapper.selectPagenationDetectionPatient(selectCriteria);
     }
 }

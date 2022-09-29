@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}"
@@ -45,10 +46,63 @@
 
             </div>
 
+=======
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/detectionList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<div th:replace="/common/header.html"/>
+<section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
+    <div class="container" style="height: 600px">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Disease List</h2>
+        <div class="center-box" style="margin-top: 10vh; height: 400px">
+            <table class="table">
+                <tr style="background-color: #2C3E50; color: #fff">
+                    <th>질병코드</th>
+                    <th>질병명</th>
+                    <th>질병설명</th>
+                </tr>
+                <tr class="table-row"
+                    th:each="disease : ${ diseaseList }"
+                    th:onclick="|location.href='@{/disease/detail?(no=${disease.illnessCode})}'|">
+                    <td th:text="${ disease.illnessCode }"></td>
+                    <td th:text="${ disease.illnessName }"></td>
+                    <td th:text="${ disease.illnessDesc }"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="d-flex justify-content-evenly">
+
+            <!--                <select id="searchCondition" name="searchCondition">-->
+            <!--                    <option value="code">질병코드</option>-->
+            <!--                    <option value="name">질병명</option>-->
+            <!--                </select> <input type="search">-->
+            <!--                <button class="btn btn-bs" type="submit">검색하기</button>-->
+
+
+            <button class="btn" style="background-color: #2C3E50; color: #fff" id="writeDisease" th:onclick="|location.href='@{/disease/regist}'|">작성하기</button>
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 
         </div>
 
     </div>
+<<<<<<< HEAD
 </th:block>
 
 </html>
@@ -88,3 +142,12 @@
 
 
 </script>
+=======
+</section>
+<div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright &copy; IndianBob 2022</small></div>
+</div>
+</body>
+
+</html>
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34

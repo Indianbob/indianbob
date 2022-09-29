@@ -58,7 +58,7 @@ public class DetectionAPIController {
 
         // 파일로 저장
         File file = null;
-        String fileAbsolutePath = resquest.getSession().getServletContext().getRealPath("/resources/static/images/detection");
+        String fileAbsolutePath = "D:/indianbob/indianbob/src/main/webapp/resources/static/images/detection";
         String filePath = "/images/detection";
         File dir = new File(filePath);
         if(!dir.exists() && !dir.isDirectory()) {

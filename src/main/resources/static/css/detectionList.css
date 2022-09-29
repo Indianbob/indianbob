@@ -11,6 +11,7 @@
 .detection {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -18,18 +19,47 @@
     width: 1120px;
     height: 1180px;
     background-color: #C4DFAA;
+=======
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    width: 800px;
+    height: 720px;
+
+    border: 3px solid #2C3E50;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-sizing: border-box;
+
+    background-color: #fff;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .userBox{
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
+=======
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
     justify-content: center;
     align-items: center;
     text-align: center;
 
     width: 800px;
+<<<<<<< HEAD
     height: 1180px;
     background-color: #90C8AC;
+=======
+    height: 720px;
+
+    border: 3px solid #2C3E50;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    box-sizing: border-box;
+
+    background-color: #fff;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .smallViews {
@@ -37,10 +67,19 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
+<<<<<<< HEAD
     gap: 25px;
 
     width: 900px;
     height: 150px;
+=======
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    margin-top: 40px;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .smallView {
@@ -49,14 +88,20 @@
     align-items: center;
     text-align: center;
 
+<<<<<<< HEAD
     width: 200px;
     height: 150px;
 
     background-color: #F5F0BB;
+=======
+    width: 213px;
+    height: 80px;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .targetView {
     display: flex;
+<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -68,6 +113,27 @@
     margin-bottom: 20px;
 
     background-color: #90C8AC;
+=======
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    width: 800px;
+
+    margin-bottom: 20px;
+}
+
+.target {
+    width: 640px;
+    height: 344px;
+
+    margin-top: 16px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .backBox {
@@ -77,7 +143,11 @@
     text-align: center;
     gap: 25px;
 
+<<<<<<< HEAD
     width: 900px;
+=======
+    width: 640px;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
     height: 80px;
 }
 
@@ -90,6 +160,7 @@
     font-size: 16px;
     line-height: 16px;
 
+<<<<<<< HEAD
     width: 250px;
     height: 60px;
 
@@ -99,19 +170,48 @@
 }
 
 .userImage {
+=======
+    width: 150px;
+    height: 60px;
+
+    cursor: pointer;
+
+    border: 1px solid #2c3e50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.userImage {
+    width: 640px;
+    height: 344px;
+
+    margin-top: 16px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+<<<<<<< HEAD
 
     width: 200px;
     height: 150px;
 
     background-color: #73A9AD;
+=======
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .userInfo {
     display: flex;
+<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -133,6 +233,15 @@
 
     width: 500px;
     height: 80px;
+=======
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    width: 800px;
+    height: 720px;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .detail {
@@ -147,16 +256,102 @@
     width: 250px;
     height: 60px;
 
+<<<<<<< HEAD
     background-color: #73A9AD;
+=======
+    background-color: #2c3e50;
+    color: #fff;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
 
 .userLayout {
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
+=======
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
     justify-content: center;
     align-items: center;
     text-align: center;
 
     width: 500px;
+<<<<<<< HEAD
     height: 1180px;
+=======
+    height: 640px;
+}
+
+.flexRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 1600px;
+}
+
+.userDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+
+    width: 800px;
+    height: 160px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.oneDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 128px;
+    height: 80px;
+}
+
+.detailBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 16px;
+
+    width: 150px;
+    height: 60px;
+
+    cursor: pointer;
+
+    border: 1px solid #2c3e50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.detailButtonBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+
+    width: 640px;
+    height: 80px;
+
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.userInfo > h3, .targetView > h3 {
+    margin-top: 32px;
+>>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 }
