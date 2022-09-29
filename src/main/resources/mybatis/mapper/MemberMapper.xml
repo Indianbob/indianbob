@@ -74,8 +74,4 @@
         FROM STAFF S
     </select>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 </mapper>

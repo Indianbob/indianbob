@@ -1,62 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout}"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
-<th:block layout:fragment="content">
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <div class="outer outer-notice-insert">
-            <br>
-            <h2 align="center">질병 수정</h2>
-            <div class="table-area">
-                <form th:action="@{/disease/update}" method="post">
-                    <table align="center">
-                        <input
-                                type="hidden"
-                                id="no"
-                                name="illnessCode"
-                                th:value="${ disease.illnessCode }"
-                        >
-                        <tr>
-                            <td>질병명 </td>
-                            <td><input type="text" size="50" name="illnessName" th:value="${ disease.illnessName }"></td>
-                        </tr>
-                        <tr>
-                            <td>질병 설명 </td>
-                            <td colspan="3">
-                                <textarea
-                                        name="illnessDesc"
-                                        cols="60"
-                                        rows="15"
-                                        style="resize:none; width:90%; height:200px; resize:none;"
-                                        th:text="${ disease.illnessDesc }"
-                                ></textarea>
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div align="center">
-                        <button
-                                type="button"
-                                class="btn btn-pk"
-                                th:onclick="'location.href=\'/disease/detail?no='+ @{${ disease.illnessCode }} + '\''"
-                        >
-                            돌아가기
-                        </button>
-                        <button type="reset" class="btn btn-or" style="width: 150px">작성내용 되돌리기</button>
-                        <button type="submit" class="btn btn-bs">수정하기</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
-</th:block>
-=======
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -81,7 +23,7 @@
 <div th:replace="/common/header.html"/>
 <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
     <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Edit Disease Info</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">질병 수정</h2>
         <div class="center-box" style="margin-top: 10vh;">
             <form th:action="@{/disease/update}" method="post">
                 <input
@@ -103,25 +45,21 @@
                     </tr>
                 </table>
                 <br>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-evenly">
                     <button
                             type="button"
-                        class="btn btn-light"
-                        th:onclick="'location.href=\'list\''"
-                        >
+                            class="btn btn-light"
+                            th:onclick="'location.href=\'list\''"
+                    >
                         돌아가기
                     </button>
-<!--                    <button type="reset" class="btn btn-light">작성내용 되돌리기</button>-->
-                    <button type="submit" class="btn" style="background-color: #2C3E50; color: #fff; margin-left: 30px">등록하기</button>
+                    <button type="reset" class="btn btn-light">작성내용 되돌리기</button>
+                    <button type="submit" class="btn btn-primary">등록하기</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
-<div class="copyright py-4 text-center text-white">
-    <div class="container"><small>Copyright &copy; IndianBob 2022</small></div>
-</div>
 </body>
->>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 
 </html>

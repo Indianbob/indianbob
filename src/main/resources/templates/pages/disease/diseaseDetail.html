@@ -1,72 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout}"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
-<th:block layout:fragment="content">
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
-
-
-    <div class="outer outer-notice-detail">
-      <br>
-      <h2 align="center">질병 자세히 보기</h2>
-      <div class="table-area">
-        <table align="center">
-          <tr>
-            <td>질병 코드</td>
-            <td colspan="3"><p th:text="${ disease.illnessCode }"></p></td>
-          </tr>
-          <tr>
-            <td>질병명 </td>
-            <td><p th:text="${ disease.illnessName }"></p></td>
-          </tr>
-          <tr>
-            <td>내용 </td>
-            <td colspan="3">
-                                <textarea
-                                        style="resize:none; width:90%; height:200px; resize:none;"
-                                        th:text="${ disease.illnessDesc }"
-                                        readonly
-                                ></textarea>
-            </td>
-          </tr>
-        </table>
-        <br>
-        <div align="center">
-          <button
-                  type="button"
-                  class="btn btn-or"
-                  th:onclick="'location.href=\'/disease/list\''"
-          >
-            돌아가기
-          </button>
-
-            <button
-                    class="btn btn-or"
-                    th:onclick="'location.href=\'/disease/update?no='+ @{${ disease.illnessCode }} + '\''"
-            >
-              수정하기
-            </button>
-            <button
-                    class="btn btn-bs"
-                    th:onclick="'location.href=\'/disease/delete?no='+ @{${ disease.illnessCode }} + '\''"
-            >
-              삭제하기
-            </button>
-
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
-</th:block>
-
-=======
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
@@ -89,23 +21,23 @@
 <body>
 <div th:replace="/common/header.html"/>
 <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
-  <div class="container" style="height: 700px; width: 700px">
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Disease Information</h2>
-    <div class="center-box" style="margin-top: 10vh">
-        <div class="mb-3" style="text-align: left">
-          <label class="form-label h4">질병 코드</label>
-          <p class="form-control" th:text="${ disease.illnessCode }"></p>
-        </div>
-      <div class="mb-3" style="text-align: left">
-        <label class="form-label h4 mt-4">질병명</label>
+  <div class="container">
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">질병 정보</h2>
+    <div class="center-box" style="margin-top: 10vh;">
+      <div class="mb-3">
+        <label class="form-label">질병 코드</label>
+        <p class="form-control" th:text="${ disease.illnessCode }"></p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">질병명</label>
         <p class="form-control" th:text="${ disease.illnessName }"></p>
       </div>
-      <div class="mb-3" style="text-align: left">
-        <label for="desc" class="form-label h4  mt-4">내용</label>
-        <textarea readonly class="form-control" rows="5" id="desc" th:text="${ disease.illnessDesc }"></textarea>
+      <div class="mb-3">
+        <label for="desc" class="form-label">내용</label>
+        <textarea class="form-control" rows="5" id="desc" th:text="${ disease.illnessDesc }"></textarea>
       </div>
       <br>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-evenly">
         <button
                 type="button"
                 class="btn btn-light"
@@ -115,25 +47,19 @@
         </button>
 
         <button
-                class="btn"
-                style="background-color: #2C3E50; color: #fff; margin-left: 30px"
+                class="btn btn-primary"
                 th:onclick="'location.href=\'/disease/update?no='+ @{${ disease.illnessCode }} + '\''"
         >
           수정하기
         </button>
         <button
                 class="btn btn-light"
-                style="margin-left: 30px"
                 th:onclick="'location.href=\'/disease/delete?no='+ @{${ disease.illnessCode }} + '\''"
         >
           삭제하기
         </button>
+      </div>
     </div>
-  </div>
 </section>
-<div class="copyright py-4 text-center text-white">
-  <div class="container"><small>Copyright &copy; IndianBob 2022</small></div>
-</div>
 </body>
->>>>>>> 32cf6f49bc060ed6d9fa0c37e73fbe6ba1463c34
 </html>
