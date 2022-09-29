@@ -18,6 +18,8 @@ spring:
     resources:
       add-mappings: true
 
+image:
+  image-dir: src/main/resources
 
 mybatis:
   # mapper.xml location Setting
