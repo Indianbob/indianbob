@@ -11,6 +11,6 @@ public class TomcatConfig implements WebServerFactoryCustomizer<TomcatServletWeb
 
     @Override
     public void customize(TomcatServletWebServerFactory factory) {
-        factory.setDocumentRoot(new File("D:/indianbob/indianbob/src/main/webapp/resources/static/"));
+        factory.setDocumentRoot(new File("D:/indianbob/indianbob/src/main/resources/static/"));
     }
 }
