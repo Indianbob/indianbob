@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/register.css}">
     <script type="text/javascript" th:src="@{/js/event.js}"></script>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis./jcom/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/detectionList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libsquery/3.6.0/jquery.min.js'></script>
 </head>
 
 <body>
-<div class="register">
-    <div class="login-screen">
-        <div class="app-title">
-            <h1>회원가입</h1>
-        </div>
-
-        <form class="login-Form" th:action="@{/member/register}" method="post">
-            <table style="margin: 0 auto">
-                <tr>
-                    <td style="width: 120px">* 아이디 </td>
-                    <td><input type="text" maxlength="13" name="staffId" id="staffId" required></td>
-<!--                    <td style="width: 100px"><input type="button" value="중복확인" class="btn btn-bs" id="duplicationCheck"></td>-->
-                </tr>
-                <tr>
-                    <td>* 비밀번호</td>
-                    <td><input type="password" maxlength="13" name="staffPw" required></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>* 비밀번호확인</td>
-                    <td><input type="password" maxlength="13" name="staffPw2"></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>* 이름</td>
-                    <td><input type="text" maxlength="5" name="staffName" required></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>연락처 </td>
-                    <td><input type="tel" name="staffPhone"></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>직급 </td>
-                    <td><input type="text" name="staffRank"></td>
-                    <td></td>
-                </tr>
-            </table>
-            <br>
-            <div class="btns" style="align-items: center">
-                <button type="button" class="btn btn-pk btns" id="goMain" th:onclick="|location.href='@{/}'|">돌아가기</button>
-                <input type="submit" value="가입하기" class="btn btn-or">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <h2 class="card-title text-center">회원가입</a></h2>
+                <div class="card-body py-md-4">
+                    <form _lpchecked="1" th:action="@{/member/register}" method="post">
+                        <div class="form-group">
+                            <input type="text" maxlength="13" class="form-control" id="staffId" name="staffId" placeholder="아이디" required>
+<!--                            <input type="button" value="중복확인" class="btn btn-primary" id="duplicationCheck">-->
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="staffPw" name="staffPw" placeholder="비밀번호"  required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="confirm-password" name="staffPw2" placeholder="비밀번호 재확인">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="staffName" name="staffName" placeholder="이름" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" id="staffPhone" name="staffPhone" placeholder="전화번호">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="staffRank" name="staffRank" placeholder="직급">
+                        </div>
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <a href="/member/login">로그인</a>
+                            <input type="submit" value="가입하기" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
-    </div>	<!-- outer end -->
-    </th:block>
+        </div>
     </div>
 </div>
 </body>
