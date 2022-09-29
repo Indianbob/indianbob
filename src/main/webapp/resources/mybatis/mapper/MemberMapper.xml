@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ac.mtvs.indianbob.member.dao.MemberMapper">
+    <resultMap id="MemberDto" type="MemberDto">
+        <id column="staffCode" property="STAFF_CODE" />
+        <result column="staffId" property="STAFF_ID" />
+        <result column="staffName" property="STAFF_NAME" />
+        <result column="staffPw" property="STAFF_PW" />
+        <result column="staffRank" property="STAFF_RANK" />
+        <result column="staffPhone" property="STAFF_PHONE" />
+    </resultMap>
+
+    <select id="selectMemberById" resultType="string">
+        SELECT
+            A.STAFF_ID
+        FROM STAFF A
+          AND A.STAFF_ID = #{ staffId }
+    </select>
+
+    <select id="findMemberAll" resultType="MemberDTO">
+        SELECT
+            A.STAFF_CODE
+             , A.STAFF_ID
+             , A.STAFF_PW
+             , A.STAFF_NAME
+             , A.STAFF_PHONE
+             , A.STAFF_RANK
+        FROM STAFF A
+    </select>
+
+    <select id="findByMemberId" resultType="MemberDTO">
+        SELECT
+               A.STAFF_CODE
+             , A.STAFF_ID
+             , A.STAFF_PW
+             , A.STAFF_NAME
+             , A.STAFF_PHONE
+             , A.STAFF_RANK
+        FROM STAFF A
+          WHERE A.STAFF_ID = #{ staffId }
+    </select>
+
+
+    <insert id="insertMember" parameterType="MemberDTO">
+        INSERT
+        INTO STAFF A
+            (
+          A.STAFF_CODE
+        , A.STAFF_ID
+        , A.STAFF_PW
+        , A.STAFF_NAME
+        , A.STAFF_PHONE
+        , A.STAFF_RANK
+        )
+        VALUES
+            (
+            SEQ_STAFF_CODE.NEXTVAL
+                , #{ staffId }
+                , #{ staffPw }
+                , #{ staffName }
+                , #{ staffPhone }
+                , #{ staffRank }
+            )
+    </insert>
+        
+    <select id="selectAllMember" resultType="MemberDTO">
+        SELECT
+            STAFF_CODE,
+            STAFF_NAME,
+            STAFF_PHONE,
+            STAFF_RANK
+        FROM STAFF S
+    </select>
+
+    <select id="selectAllMember" resultType="MemberDTO">
+        SELECT
+            STAFF_CODE,
+            STAFF_NAME,
+            STAFF_PHONE,
+            STAFF_RANK
+        FROM STAFF S
+    </select>
+
+</mapper>

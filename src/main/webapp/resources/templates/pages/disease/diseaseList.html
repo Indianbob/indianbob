@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <div class="outer outer-notice-list">
+            <br>
+            <h2 style="text-align: center">질병 리스트</h2>
+            <div class="table-area">
+
+                <table align="center" id="listArea">
+                    <tr>
+                        <th>질병코드</th>
+                        <th style="width: 300px">질병명</th>
+                        <th style="width: 300px">질병설명</th>
+                    </tr>
+
+                    <tr
+                            th:each="disease : ${ diseaseList }"
+                    >
+                        <td th:text="${ disease.illnessCode }"></td>
+                        <td th:text="${ disease.illnessName }"></td>
+                        <td th:text="${ disease.illnessDesc }"></td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+            <div class="search-area" align="center">
+
+                <select id="searchCondition" name="searchCondition">
+                    <option value="code">질병코드</option>
+                    <option value="name">질병명</option>
+                </select> <input type="search">
+                <button class="btn btn-bs" type="submit">검색하기</button>
+
+
+                <button class="btn btn-or" id="writeNotice" th:onclick="|location.href='@{/disease/regist}'|">작성하기</button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</th:block>
+
+</html>
+
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+
+    let message = [[${message}]];
+
+    if(message != null && message !== '') {
+        alert(message);
+    }
+
+    /*]]>*/
+
+    /* 게시글 리스트에서 해당 게시글에 마우스를 올릴 떄에 대한 스타일 처리 */
+    if (document.querySelectorAll("#listArea td")) {
+        const $tds = document.querySelectorAll("#listArea td");
+        for (let i = 0; i < $tds.length; i++) {
+
+            $tds[i].onmouseenter = function() {
+                this.parentNode.style.backgroundColor = "orangered";
+                this.parentNode.style.cursor = "pointer";
+            }
+
+            $tds[i].onmouseout = function() {
+                this.parentNode.style.backgroundColor = "black";
+            }
+
+            $tds[i].onclick = function() {
+                const no = this.parentNode.children[0].innerText;
+                location.href = "/disease/detail?no=" + no;
+            }
+        }
+    }
+
+
+</script>

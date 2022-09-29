@@ -2,9 +2,12 @@ package ac.mtvs.indianbob.detection.model.service;
 
 import ac.mtvs.indianbob.detection.model.dao.DetectionMapper;
 import ac.mtvs.indianbob.detection.model.dto.DetectionDTO;
+import ac.mtvs.indianbob.detection.model.dto.DetectionPatientDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class DetectionService {
@@ -16,12 +19,22 @@ public class DetectionService {
         this.detectionMapper = detectionMapper;
     }
 
+    public List<DetectionDTO> selectAllDetection() {
+
+        return detectionMapper.selectAllDetection();
+    }
+
+    public List<DetectionPatientDTO> selectAllDetectionPatient() {
+
+        return detectionMapper.selectAllDetectionPatient();
+    }
+
     public DetectionDTO selectRecentDetectionInfo(int patientId) {
 
         return detectionMapper.selectRecentDetectionInfo(patientId);
     }
 
-    public DetectionDTO selectDetectionByPatientCode(int patientCode) {
+    public List<DetectionDTO> selectDetectionByPatientCode(int patientCode) {
 
         return detectionMapper.selectDetectionByPatientCode(patientCode);
     }
@@ -29,6 +42,13 @@ public class DetectionService {
     @Transactional
     public boolean insertDetectionInfo(DetectionDTO detectionInfo) {
 
+        System.out.println("service" + detectionInfo);
+
         return detectionMapper.insertDetectionInfo(detectionInfo);
+    }
+
+    public DetectionDTO selectRecentDetectionByPatientCode(int patientCode) {
+
+        return detectionMapper.selectRecentDetectionByPatientCode(patientCode);
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ac.mtvs.indianbob.disease.dao.DiseaseMapper">
+
+    <resultMap type="DiseaseDTO" id="diseaseResultMap">
+        <id property="illnessCode" column="ILLNESS_CODE"/>
+        <result property="illnessName" column="ILLNESS_NAME"/>
+        <result property="illnessDesc" column="ILLNESS_DESC"/>
+    </resultMap>
+
+    <select id="selectAllDiseaseList" resultMap="diseaseResultMap">
+        SELECT
+            A.ILLNESS_CODE
+             , A.ILLNESS_NAME
+             , A.ILLNESS_DESC
+        FROM ILLNESS A
+    </select>
+
+    <insert id="insertDisease" parameterType="DiseaseDTO">
+        INSERT
+        INTO ILLNESS A
+            (
+               A.ILLNESS_CODE
+             , A.ILLNESS_NAME
+             , A.ILLNESS_DESC
+        )
+        VALUES
+            (
+            SEQ_ILLNESS_CODE.NEXTVAL
+                , #{ illnessName }
+                , #{ illnessDesc }
+            )
+    </insert>
+
+
+    <select id="selectDiseaseDetail" parameterType="long" resultMap="diseaseResultMap">
+        SELECT
+            A.ILLNESS_CODE
+             , A.ILLNESS_NAME
+             , A.ILLNESS_DESC
+        FROM ILLNESS A
+        WHERE A.ILLNESS_CODE = #{ no }
+    </select>
+
+    <update id="updateDisease" parameterType="DiseaseDTO">
+        UPDATE
+            ILLNESS A
+        SET A.ILLNESS_NAME = #{ illnessName }
+           ,A.ILLNESS_DESC = #{ illnessDesc }
+        WHERE A.ILLNESS_CODE = #{  illnessCode }
+    </update>
+
+    <delete id="deleteDisease">
+            DELETE
+            FROM ILLNESS A
+            WHERE A.ILLNESS_CODE = #{ illnessCode }
+    </delete>
+
+</mapper>

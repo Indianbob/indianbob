@@ -5,12 +5,10 @@ import lombok.Setter;
 
 import java.sql.Date;
 
-@Getter
-@Setter
 public class PatientDTO {
     private int patientCode;
     private String patientName;
-    private int patientBirth;
+    private String patientBirth;
     private String guardianPhone;
     private String guardianName;
     private String patientRelationship;
@@ -18,18 +16,15 @@ public class PatientDTO {
     private String patientPhone;
     private String patientPicture;
     private String explanation;
-    private java.sql.Date entranceDate;
-    private java.sql.Date exitDate;
+    private String entranceDate;
+    private String exitDate;
     private String exitYn;
     private int manageStaffCode;
     private String patientGender;
 
     public PatientDTO() {};
 
-    public PatientDTO(int patientCode, String patientName, int patientBirth, String guardianPhone,
-                      String guardianName, String patientRelationship, String patientAddress, String patientPhone,
-                      String patientPicture, String explanation, Date entranceDate, Date exitDate, String exitYn,
-                      int manageStaffCode, String patientGender) {
+    public PatientDTO(int patientCode, String patientName, String patientBirth, String guardianPhone, String guardianName, String patientRelationship, String patientAddress, String patientPhone, String patientPicture, String explanation, String entranceDate, String exitDate, String exitYn, int manageStaffCode, String patientGender) {
         this.patientCode = patientCode;
         this.patientName = patientName;
         this.patientBirth = patientBirth;
@@ -45,27 +40,6 @@ public class PatientDTO {
         this.exitYn = exitYn;
         this.manageStaffCode = manageStaffCode;
         this.patientGender = patientGender;
-    }
-
-    @Override
-    public String toString() {
-        return "PatientDTO{" +
-                "patientCode=" + patientCode +
-                ", patientName='" + patientName + '\'' +
-                ", patientBirth=" + patientBirth +
-                ", guardianPhone='" + guardianPhone + '\'' +
-                ", guardianName='" + guardianName + '\'' +
-                ", patientRelationship='" + patientRelationship + '\'' +
-                ", patientAddress='" + patientAddress + '\'' +
-                ", patientPhone='" + patientPhone + '\'' +
-                ", patientPicture='" + patientPicture + '\'' +
-                ", explanation='" + explanation + '\'' +
-                ", entranceDate=" + entranceDate +
-                ", exitDate=" + exitDate +
-                ", exitYn='" + exitYn + '\'' +
-                ", manageStaffCode=" + manageStaffCode +
-                ", patientGender='" + patientGender + '\'' +
-                '}';
     }
 
     public int getPatientCode() {
@@ -84,11 +58,11 @@ public class PatientDTO {
         this.patientName = patientName;
     }
 
-    public int getPatientBirth() {
+    public String getPatientBirth() {
         return patientBirth;
     }
 
-    public void setPatientBirth(int patientBirth) {
+    public void setPatientBirth(String patientBirth) {
         this.patientBirth = patientBirth;
     }
 
@@ -148,19 +122,19 @@ public class PatientDTO {
         this.explanation = explanation;
     }
 
-    public Date getEntranceDate() {
+    public String getEntranceDate() {
         return entranceDate;
     }
 
-    public void setEntranceDate(Date entranceDate) {
+    public void setEntranceDate(String entranceDate) {
         this.entranceDate = entranceDate;
     }
 
-    public Date getExitDate() {
+    public String getExitDate() {
         return exitDate;
     }
 
-    public void setExitDate(Date exitDate) {
+    public void setExitDate(String exitDate) {
         this.exitDate = exitDate;
     }
 
@@ -186,5 +160,26 @@ public class PatientDTO {
 
     public void setPatientGender(String patientGender) {
         this.patientGender = patientGender;
+    }
+
+    @Override
+    public String toString() {
+        return "PatientDTO{" +
+                "patientCode=" + patientCode +
+                ", patientName='" + patientName + '\'' +
+                ", patientBirth='" + patientBirth + '\'' +
+                ", guardianPhone='" + guardianPhone + '\'' +
+                ", guardianName='" + guardianName + '\'' +
+                ", patientRelationship='" + patientRelationship + '\'' +
+                ", patientAddress='" + patientAddress + '\'' +
+                ", patientPhone='" + patientPhone + '\'' +
+                ", patientPicture='" + patientPicture + '\'' +
+                ", explanation='" + explanation + '\'' +
+                ", entranceDate='" + entranceDate + '\'' +
+                ", exitDate='" + exitDate + '\'' +
+                ", exitYn='" + exitYn + '\'' +
+                ", manageStaffCode=" + manageStaffCode +
+                ", patientGender='" + patientGender + '\'' +
+                '}';
     }
 }
