@@ -74,13 +74,4 @@
         FROM STAFF S
     </select>
 
-    <select id="selectAllMember" resultType="MemberDTO">
-        SELECT
-            STAFF_CODE,
-            STAFF_NAME,
-            STAFF_PHONE,
-            STAFF_RANK
-        FROM STAFF S
-    </select>
-
 </mapper>
