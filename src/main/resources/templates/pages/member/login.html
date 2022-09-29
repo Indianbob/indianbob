@@ -23,8 +23,8 @@
 <body>
 <div class="login">
     <div class="login-screen">
-        <div class="app-title">
-            <h1>로그인</h1>
+        <div class="app-title mb-5">
+            <h1 style="color: #2C3E50">로그인</h1>
         </div>
 
         <div class="login-form">
@@ -39,11 +39,12 @@
                     <label class="login-field-icon fui-lock" for="login-pass"></label>
                 </div>
 
-                <div class="btns">
-                    <input type="button" class="btn btn-primary btn-large btn-block" value="회원가입" id="regist" th:onclick="|location.href='@{/member/register}'|">
-                </div>
                 <div>
-                    <input type="submit" class="btn btn-primary btn-large btn-block" value="로그인" id="loginSubmit">
+                    <input type="submit" class="btn btn-large btn-block" style="background-color: #2C3E50; color: #fff" value="로그인" id="loginSubmit">
+                </div>
+
+                <div class="btns">
+                    <input type="button" class="btn btn-light btn-large btn-block mt-3" value="회원가입" id="regist" th:onclick="|location.href='@{/member/register}'|">
                 </div>
             </form>
         </div>
