@@ -68,6 +68,15 @@
         ORDER BY A.DETECTION_CODE DESC
     </select>
 
+    <select id="selectPagenationDetectionPatient" resultMap="DetectionPatientResultMap">
+        SELECT A.*
+             , B.*
+        FROM DETECTION_LOG A
+        LEFT JOIN PATIENT B ON (A.PATIENT_CODE = B.PATIENT_CODE)
+        WHERE A.PATIENT_CODE BETWEEN #{ startRow } AND #{ endRow }
+        ORDER BY A.DETECTION_CODE DESC
+    </select>
+
     <insert id="insertDetectionInfo" parameterType="DetectionDTO">
         INSERT
           INTO DETECTION_LOG A

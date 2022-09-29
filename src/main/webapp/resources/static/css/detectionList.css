@@ -11,25 +11,36 @@
 .detection {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
 
-    width: 1120px;
-    height: 1180px;
-    background-color: #C4DFAA;
+    width: 800px;
+    height: 720px;
+
+    border: 3px solid #2C3E50;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-sizing: border-box;
+
+    background-color: #fff;
 }
 
 .userBox{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 
     width: 800px;
-    height: 1180px;
-    background-color: #90C8AC;
+    height: 720px;
+
+    border: 3px solid #2C3E50;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    box-sizing: border-box;
+
+    background-color: #fff;
 }
 
 .smallViews {
@@ -37,10 +48,12 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 25px;
 
-    width: 900px;
-    height: 150px;
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    margin-top: 40px;
 }
 
 .smallView {
@@ -49,25 +62,31 @@
     align-items: center;
     text-align: center;
 
-    width: 200px;
-    height: 150px;
-
-    background-color: #F5F0BB;
+    width: 213px;
+    height: 80px;
 }
 
 .targetView {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
 
-    width: 900px;
-    height: 600px;
+    width: 800px;
 
-    margin-top: 60px;
     margin-bottom: 20px;
+}
 
-    background-color: #90C8AC;
+.target {
+    width: 640px;
+    height: 344px;
+
+    margin-top: 16px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
 }
 
 .backBox {
@@ -77,7 +96,7 @@
     text-align: center;
     gap: 25px;
 
-    width: 900px;
+    width: 640px;
     height: 80px;
 }
 
@@ -90,49 +109,44 @@
     font-size: 16px;
     line-height: 16px;
 
-    width: 250px;
+    width: 150px;
     height: 60px;
 
-    background-color: #73A9AD;
-
     cursor: pointer;
+
+    border: 1px solid #2c3e50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    background-color: #2c3e50;
+    color: #fff;
 }
 
 .userImage {
+    width: 640px;
+    height: 344px;
+
+    margin-top: 16px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    width: 200px;
-    height: 150px;
-
-    background-color: #73A9AD;
 }
 
 .userInfo {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
 
-    margin-top: 60px;
-    margin-bottom: 20px;
-
-    width: 500px;
-    height: 600px;
-
-    background-color: #F5F0BB;
-}
-
-.detailBox {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-
-    width: 500px;
-    height: 80px;
+    width: 800px;
+    height: 720px;
 }
 
 .detail {
@@ -147,16 +161,90 @@
     width: 250px;
     height: 60px;
 
-    background-color: #73A9AD;
+    background-color: #2c3e50;
+    color: #fff;
 }
 
 .userLayout {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 
     width: 500px;
-    height: 1180px;
+    height: 640px;
+}
+
+.flexRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 1600px;
+}
+
+.userDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+
+    width: 800px;
+    height: 160px;
+
+    border: 3px solid #2C3E50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.oneDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 128px;
+    height: 80px;
+}
+
+.detailBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 16px;
+
+    width: 150px;
+    height: 60px;
+
+    cursor: pointer;
+
+    border: 1px solid #2c3e50;
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.detailButtonBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+
+    width: 640px;
+    height: 80px;
+
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.userInfo > h3, .targetView > h3 {
+    margin-top: 32px;
 }
