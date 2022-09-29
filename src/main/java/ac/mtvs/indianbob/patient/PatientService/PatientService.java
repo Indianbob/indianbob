@@ -16,9 +16,16 @@ public class PatientService {
         this.mapper = mapper;
     }
 
-    public List<PatientDTO> selectAllPatient(){
+
+    public List<PatientDTO> selectAllPatient() {
 
         List<PatientDTO> result = mapper.selectAllPatient();
+
+        return result;
+    }
+    public List<PatientApiDTO> selectAllPatientApi(){
+
+        List<PatientApiDTO> result = mapper.selectAllPatientApi();
 
         return result;
     }
@@ -30,15 +37,9 @@ public class PatientService {
         return result;
     }
 
-    public List<PatientApiDTO> selectAllPatientApi() {
-
-        List<PatientApiDTO> result = mapper.selectAllPatientApi();
-
-        return result;
-    }
-
     public void insertPatient(PatientDTO patient) {
 
         int result = mapper.insertPatient(patient);
     }
+
 }

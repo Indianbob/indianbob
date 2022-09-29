@@ -21,25 +21,26 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <div th:replace="/common/header.html"/>
-    <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 7vh;">
-        <div class="container" style="margin-left: 140px" >
-            <div class="flexRow">
-                <div class="detection">
-                    <div class="targetView" >
-                        <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">최근 탐지 정보</h3>
-                        <img class="target" id="image" th:src="|/images/detection/${ recentDetection.imageName }|"/>
-                        <div class="smallViews" >
-                            <div class="smallView" th:text="|탐지 번호 : ${ recentDetection.detectionCode }|"/>
-                            <div class="smallView" th:text="|탐지 시간 : ${ recentDetection.detectionDate }|"/>
-                            <div class="smallView" th:text="|탐지 위치 : ${ recentDetection.detectionLocation}|"/>
-                        </div>
-                    </div>
-                        <div class="backBox">
-                        <button class="back" th:onclick="|location.href='@{/detection}'|">목록 돌아가기</button>
-                        <button id="request" class="back">담당 직원 연락처</button>
+<div th:replace="/common/header.html"/>
+<section class="page-section portfolio text-center" id="portfolio" style="margin-top: 7vh;">
+    <div class="container" style="margin-left: 140px" >
+        <div class="flexRow">
+            <div class="detection" th:style="${recentDetection.patientCode == 0? 'border-radius:2rem;': 'background-color:#fff'}">
+                <div class="targetView" >
+                    <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;" th:style="${recentDetection.patientCode == 0? 'color: #f00;': 'background-color:#fff;'}" >최근 탐지 정보</h3>
+                    <img class="target" id="image" th:src="|/images/detection/${ recentDetection.imageName }|" th:style="${recentDetection.patientCode == 0? 'border: 3px solid #f00;': 'background-color:#fff;'}"/>
+                    <div class="smallViews" th:style="${recentDetection.patientCode == 0? 'border: 3px solid #f00;': 'background-color:none;'}">
+                        <div class="smallView" th:style="${recentDetection.patientCode == 0? 'color: #f00;': 'background-color:none;'}" th:text="|탐지 번호 : ${ recentDetection.detectionCode }|"/>
+                        <div class="smallView" th:style="${recentDetection.patientCode == 0? 'color: #f00;': 'background-color:none;'}" th:text="|탐지 시간 : ${ recentDetection.detectionDate }|"/>
+                        <div class="smallView" th:style="${recentDetection.patientCode == 0? 'color: #f00;': 'background-color:none;'}" th:text="|탐지 위치 : ${ recentDetection.detectionLocation}|"/>
                     </div>
                 </div>
+                <div class="backBox">
+                    <button class="back" th:onclick="|location.href='@{/detection}'|">목록 돌아가기</button>
+<!--                    <button id="request" th:if="${recentDetection.patientCode != 0}" class="back">담당 직원 연락처</button>-->
+                </div>
+            </div>
+            <th:block th:if="${recentDetection.patientCode != 0}">
                 <div class="userBox">
                     <div class="userLayout">
                         <div class="userInfo">
@@ -57,11 +58,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
+            </th:block>
         </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>
 <!--<script th:inline="javascript">-->

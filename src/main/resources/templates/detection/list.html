@@ -25,13 +25,10 @@
         <div class="container">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Detection Logs</h2>
             <div class="center-box" style="margin-top: 8vh; flex-direction: column">
-                <div style="display: flex; gap: 24px;">
-                    <input type="text" id="patientSearch" name="query" placeholder="검색 내용을 입력하세요"/>
-                    <button type="submit">검색</button>
-                </div>
                 <table class="table" style="margin-top: 2vh;">
                     <tr style="background-color: #2C3E50; color: #fff">
                         <th class="table-rowHead">탐지 번호</th>
+                        <th class="table-rowHead">탐지 위치</th>
                         <th class="table-rowHead">환자 번호</th>
                         <th class="table-rowHead">환자 이름</th>
                         <th class="table-rowHead">환자 연락처</th>
@@ -40,15 +37,18 @@
                         <th class="table-rowHead">탐지 시간</th>
                     </tr>
                     <tr class="table-row"
-                        th:each="patient : ${ detectionPatientList }"  th:onclick="|location.href='@{/detection/detail?(detectionCode=${patient.detectionCode})}'|">
+                        th:each="patient : ${ detectionPatientList }"
+                        th:style="${patient.patientCode == 0? 'background-color: #ff0000cc;': 'background-color:#fff;'}"
+                        th:onclick="|location.href='@{/detection/detail?(detectionCode=${patient.detectionCode})}'|">
 <!--                        th:if="${patient.detectionCode} ge ${selectCriteria.totalCount - (selectCriteria.pageNo) * 10 + 1} and ${patient.detectionCode} le ${selectCriteria.totalCount - (selectCriteria.pageNo - 1) * 10 } "-->
 
                         <td th:text="${ patient.detectionCode }"/>
+                        <td th:text="${ patient.detectionLocation }"/>
                         <td th:text="${ patient.patientCode }"/>
-                        <td th:text="${ patient.patient.patientName }"/>
-                        <td th:text="${ patient.patient.patientPhone }"/>
-                        <td th:text="${ patient.patient.guardianName }"/>
-                        <td th:text="${ patient.patient.guardianPhone }"/>
+                        <td th:text="${ patient.patient.patientName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.patientPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
                         <td th:text="${ patient.detectionDate }"/>
                     </tr>
                 </table>

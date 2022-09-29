@@ -21,10 +21,17 @@ public class PatientDTO {
     private String exitYn;
     private int manageStaffCode;
     private String patientGender;
+    private String originFileName;
+    private String savedFileName;
 
-    public PatientDTO() {};
+    public PatientDTO() {
+    };
 
-    public PatientDTO(int patientCode, String patientName, String patientBirth, String guardianPhone, String guardianName, String patientRelationship, String patientAddress, String patientPhone, String patientPicture, String explanation, String entranceDate, String exitDate, String exitYn, int manageStaffCode, String patientGender) {
+    public PatientDTO(int patientCode, String patientName, String patientBirth, String guardianPhone,
+                      String guardianName, String patientRelationship, String patientAddress, String patientPhone,
+                      String patientPicture, String explanation, String entranceDate, String exitDate,
+                      String exitYn, int manageStaffCode, String patientGender, String originFileName,
+                      String savedFileName) {
         this.patientCode = patientCode;
         this.patientName = patientName;
         this.patientBirth = patientBirth;
@@ -40,6 +47,31 @@ public class PatientDTO {
         this.exitYn = exitYn;
         this.manageStaffCode = manageStaffCode;
         this.patientGender = patientGender;
+        this.originFileName = originFileName;
+        this.savedFileName = savedFileName;
+    }
+
+    @Override
+    public String toString() {
+        return "PatientDTO{" +
+                "patientCode=" + patientCode +
+                ", patientName='" + patientName + '\'' +
+                ", patientBirth='" + patientBirth + '\'' +
+                ", guardianPhone='" + guardianPhone + '\'' +
+                ", guardianName='" + guardianName + '\'' +
+                ", patientRelationship='" + patientRelationship + '\'' +
+                ", patientAddress='" + patientAddress + '\'' +
+                ", patientPhone='" + patientPhone + '\'' +
+                ", patientPicture='" + patientPicture + '\'' +
+                ", explanation='" + explanation + '\'' +
+                ", entranceDate='" + entranceDate + '\'' +
+                ", exitDate='" + exitDate + '\'' +
+                ", exitYn='" + exitYn + '\'' +
+                ", manageStaffCode=" + manageStaffCode +
+                ", patientGender='" + patientGender + '\'' +
+                ", originFileName='" + originFileName + '\'' +
+                ", savedFileName='" + savedFileName + '\'' +
+                '}';
     }
 
     public int getPatientCode() {
@@ -162,24 +194,19 @@ public class PatientDTO {
         this.patientGender = patientGender;
     }
 
-    @Override
-    public String toString() {
-        return "PatientDTO{" +
-                "patientCode=" + patientCode +
-                ", patientName='" + patientName + '\'' +
-                ", patientBirth='" + patientBirth + '\'' +
-                ", guardianPhone='" + guardianPhone + '\'' +
-                ", guardianName='" + guardianName + '\'' +
-                ", patientRelationship='" + patientRelationship + '\'' +
-                ", patientAddress='" + patientAddress + '\'' +
-                ", patientPhone='" + patientPhone + '\'' +
-                ", patientPicture='" + patientPicture + '\'' +
-                ", explanation='" + explanation + '\'' +
-                ", entranceDate='" + entranceDate + '\'' +
-                ", exitDate='" + exitDate + '\'' +
-                ", exitYn='" + exitYn + '\'' +
-                ", manageStaffCode=" + manageStaffCode +
-                ", patientGender='" + patientGender + '\'' +
-                '}';
+    public String getOriginFileName() {
+        return originFileName;
+    }
+
+    public void setOriginFileName(String originFileName) {
+        this.originFileName = originFileName;
+    }
+
+    public String getSavedFileName() {
+        return savedFileName;
+    }
+
+    public void setSavedFileName(String savedFileName) {
+        this.savedFileName = savedFileName;
     }
 }
