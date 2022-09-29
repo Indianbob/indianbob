@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/patientStyle/patient-style.css">
+</head>
+<body>
+<h1>++header++</h1>
+<hr/>
+<br/>
+
+<div >
+    <select>
+        <option value="">선택</option>
+        <option value="name">이름</option>
+        <option value="rank">직급</option>
+    </select>
+
+    <input type="text" id="staffSearch" placeholder="검색 내용을 입력하세요"/>
+
+    <button>검색</button>
+
+    <table class="patientListTable">
+        <tr>
+            <td>직원번호</td>
+            <td>직원 이름</td>
+            <td>직급</td>
+            <td>연락처</td>
+        </tr>
+        <th:block>
+            <tr  th:each="member: ${memberList}">
+                <td th:text="${member.staffCode}"></td>
+                <td th:text="${member.staffName}"></td>
+                <td th:text="${member.staffRank}"></td>
+                <td th:text="${member.staffPhone}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+    <br/>
+
+    <hr/>
+    <h1>+++footer+++</h1>
+</div>
+
+</body>
+</html>

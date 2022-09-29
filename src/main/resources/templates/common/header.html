@@ -25,8 +25,16 @@
         <!-- 헤더 : 기존 메뉴 버튼 4개, 프로젝트 소개, 팀 소개 -->
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
+<<<<<<< HEAD:src/main/webapp/resources/templates/common/header.html
                 <li class="mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="color: #f1f0ec;"><th:block class="py-3 px-0 px-lg-3 rounded text-white" sec:authentication="principal.staffName"></th:block>님의 방문을 환영합니다.</a></li>
                 <li class="mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="color: #f1f0ec;" href="/main#portfolio">Category</a></li>
+=======
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><th:block class="py-3 px-0 px-lg-3 rounded text-white" sec:authentication="principal.staffName"></th:block>님의 방문을 환영합니다.</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/patients">Patients</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/detection">Detection</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/disease/list">Diseases</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Staff</a></li>
+>>>>>>> 64755134e0e91e2fe9e89338ccfbf50767788a72:src/main/resources/templates/common/header.html
             </ul>
         </div>
     </div>
