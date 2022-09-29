@@ -11,10 +11,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -88,6 +90,18 @@ public class MemberController {
     public String goLoginFail() {
 
         return "pages/errors/login";
+    }
+
+    @GetMapping("")
+    public ModelAndView memberList(ModelAndView mv){
+
+        List<MemberDTO> memberList = memberService.selectAllMember();
+
+        mv.addObject("memberList", memberList);
+
+        mv.setViewName("/pages/member/staffList");
+
+        return mv;
     }
 
 }

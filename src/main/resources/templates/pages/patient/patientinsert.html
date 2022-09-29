@@ -7,38 +7,45 @@
 </head>
 <body>
 <div th:replace="/common/header.html"></div>
+
     <div class="patientInsertPage">
-        <div class="patientInsertTop">
+
+        <th:block>
+        <form id="patientInsert" th:action="@{/patient/insert}" method="post">
+            <div class="patientInsertTop">
+
             <div class="patientInsertImg"><p style="margin-top:90px">이미지 추가</p></div>
             <hr/>
 
-            <form action="" method="post">
             <table class="patientInsertInfo">
-                <tr> <td>이름</td> <td><input type="text" name="name" id="name" class="patientInputBoxTop"></td> </tr>
-                <tr> <td>생년월일/나이(만) </td> <td><input type="text" name="birth" id="birth" class="patientInputBoxTop"></td> </tr>
-                <tr> <td>성별</td> <td><input type="text" name="gender" id="gender" class="patientInputBoxTop"></td> </tr>
-                <tr> <td>주소</td> <td><input type="text" name="address" id="address" class="patientInputBoxTop"></td> </tr>
+                <!--patientCode는 자동으로 증가하게 설정-->
+                <tr> <td>이름</td> <td><input type="text" name="patientName" class="patientInputBoxTop"></td> </tr>
+                <tr> <td>생년월일 </td> <td><input type="text" name="patientBirth"  class="patientInputBoxTop"></td> </tr>
+                <tr> <td>성별</td> <td><input type="text" name="patientGender" class="patientInputBoxTop"></td> </tr>
+                <tr> <td>주소</td> <td><input type="text" name="patientAddress" class="patientInputBoxTop"></td> </tr>
+                <tr> <td>전화번호</td> <td><input type="text" name="patientPhone" class="patientInputBoxTop"></td> </tr>
+
             </table>
-        </div>
+            </div>
         <hr/>
 
         <table class="patientInsertMiddle">
-            <tr> <td>지병 정보</td> <td><input class="patientInputBoxMiddle" type="text" name="illness" id="illness"> <button>+</button> </td> </tr>
-            <tr> <td>특이사항</td> <td><input class="patientInputBoxMiddle" type="text" name="notice" id="notice"> <button>+</button> </td> </tr>
+<!--            <tr> <td>지병 정보</td> <td><input class="patientInputBoxMiddle" type="text" name="illness" id="illness"> <button>+</button> </td> </tr>-->
+            <tr> <td>특이사항</td> <td><input class="patientInputBoxMiddle" type="text" name="explanation" id="notice"> <button>+</button> </td> </tr>
         </table>
         <hr/>
 
         <table class="patientInsertBottom">
             <tr> <td>보호자 이름</td> <td><input class="patientInputBoxBottom" type="text" name="guardianName" id="guardianName"></td> </tr>
-            <tr> <td>환자와의 관계</td> <td><input class="patientInputBoxBottom" type="text" name="guardianRelation" id="guardianRelation"></td> </tr>
+            <tr> <td>환자와의 관계</td> <td><input class="patientInputBoxBottom" type="text" name="patientRelationship" id="patientRelationship"></td> </tr>
             <tr> <td>보호자 연락처</td> <td><input class="patientInputBoxBottom" type="text" name="guardianPhone" id="guardianPhone"></td> </tr>
         </table>
 
         <hr/>
 
-        <button class="patientInsertCompletedButton" th:onclick="|location.href='@{/patient}'|">완료</button>
+        <button class="patientInsertCompletedButton" type="submit">완료</button>
         </form>
-
+        </th:block>
     </div>
     <h1>+++footer+++</h1>
 
