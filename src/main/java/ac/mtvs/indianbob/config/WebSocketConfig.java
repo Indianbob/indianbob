@@ -21,5 +21,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
         // EndPoint 및 접속 허용(CORS)
         registry.addHandler(webSocketService, "ws/test").setAllowedOrigins("*");
 
+
     }
 }

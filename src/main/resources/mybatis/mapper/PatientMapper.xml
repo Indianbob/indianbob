@@ -26,26 +26,47 @@
     <select id="selectAllPatient" resultType="PatientDTO">
         SELECT
             A.PATIENT_CODE
-          , A.PATIENT_NAME
-          , A.PATIENT_BIRTH
-          , A.GUARDIAN_PHONE
-          , A.GUARDIAN_NAME
-          , A.PATIENT_RELATIONSHIP
-          , A.PATIENT_ADDRESS
-          , A.PATIENT_PHONE
-          , A.PATIENT_PICTURE
-          , A.EXPLANATION
-          , A.ENTRANCE_DATE
-          , A.EXIT_DATE
-          , A.EXIT_YN
-          , A.MANAGE_STAFF_CODE
-          , A.PATIENT_GENDER
+             , A.PATIENT_NAME
+             , A.PATIENT_BIRTH
+             , A.GUARDIAN_PHONE
+             , A.GUARDIAN_NAME
+             , A.PATIENT_RELATIONSHIP
+             , A.PATIENT_ADDRESS
+             , A.PATIENT_PHONE
+             , A.PATIENT_PICTURE
+             , A.EXPLANATION
+             , A.ENTRANCE_DATE
+             , A.EXIT_DATE
+             , A.EXIT_YN
+             , A.MANAGE_STAFF_CODE
+             , A.PATIENT_GENDER
         FROM PATIENT A
+    </select>
+
+    <select id="selectPatientByPatientCode" resultType="PatientDTO">
+        SELECT
+            A.PATIENT_CODE
+             , A.PATIENT_NAME
+             , A.PATIENT_BIRTH
+             , A.GUARDIAN_PHONE
+             , A.GUARDIAN_NAME
+             , A.PATIENT_RELATIONSHIP
+             , A.PATIENT_ADDRESS
+             , A.PATIENT_PHONE
+             , A.PATIENT_PICTURE
+             , A.EXPLANATION
+             , A.ENTRANCE_DATE
+             , A.EXIT_DATE
+             , A.EXIT_YN
+             , A.MANAGE_STAFF_CODE
+             , A.PATIENT_GENDER
+        FROM PATIENT A
+        WHERE A.PATIENT_CODE = #{ patientCode }
     </select>
 
     <select id="selectAllPatientApi" resultType="PatientApiDTO">
         SELECT
-             A.PATIENT_CODE
+            A.PATIENT_CODE
              , A.PATIENT_NAME
              , A.PATIENT_BIRTH
              , A.PATIENT_PICTURE
@@ -55,7 +76,7 @@
     <insert id="insertPatient">
         INSERT /*ac.mtvs.indianbob.patient.model.dao.PatientMapper#insertPatient()*/
         INTO PATIENT P
-        (
+            (
             P.PATIENT_CODE,
             P.PATIENT_NAME,
             P.PATIENT_BIRTH,
@@ -71,7 +92,7 @@
             P.ENTRANCE_DATE
         )
         VALUES
-        (
+            (
             SEQ_PATIENT_CODE.NEXTVAL,
             #{ patientName },
             #{ patientBirth },
@@ -82,10 +103,10 @@
             #{ guardianName },
             #{ patientRelationship },
             #{ guardianPhone },
-            'images/patient/Lincoln.jpg',
+            #{ patientPicture },
             1,
             TO_DATE(SYSDATE,'YYYY-MM-DD')
-        )
+            )
     </insert>
 
 
