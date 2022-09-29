@@ -68,7 +68,7 @@
         SELECT
              A.PATIENT_CODE
              , A.PATIENT_NAME
-             , A.PATIENT_BIRTH
+            , A.PATIENT_BIRTH
              , A.PATIENT_PICTURE
         FROM PATIENT A
     </select>

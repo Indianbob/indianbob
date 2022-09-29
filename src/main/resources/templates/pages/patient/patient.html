@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="UTF-8">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/bootstrap/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="/patientStyle/patient-style.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <h1>++header++</h1>
-    <hr/>
-    <br/>
+    <div th:replace="/common/header.html"/>
 
-    <div >
+        <header class="masthead text-white text-center" style="background-color: #fff; color: #1f2247;">
+            <div class="container" style="color: #1f2247;">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Patient List</h2>
         <select>
             <option value="">선택</option>
             <option value="disease">지병명</option>
@@ -23,29 +34,27 @@
 
         <button>검색</button>
 
-        <table class="patientListTable">
-            <tr>
+        <table class="table">
+            <tr style="background-color: #2C3E50; color: #fff">
                 <td>환자 번호</td>
                 <td>환자 이름</td>
                 <td>생년월일</td>
                 <td>지병(상세보기)</td>
             </tr>
             <th:block>
-            <tr  th:each="patient: ${patientList}">
-                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
-                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
-                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
-                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientPhone}" ></a></td>
+            <tr class="table-row" th:each="patient: ${patientList}">
+                <td><a th:text="${patient.patientCode}" style="color: #1f2247; text-decoration: none"></a></td>
+                <td><a th:text="${patient.patientName}" style="color: #1f2247; text-decoration: none"></a></td>
+                <td><a th:text="${patient.patientBirth}" style="color: #1f2247; text-decoration: none"></a></td>
+                <td><a th:text="${patient.patientPhone}"style="color: #1f2247; text-decoration: none"></a></td>
             </tr>
             </th:block>
         </table>
 
         <button th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>
         <br/>
-
-        <hr/>
-        <h1>+++footer+++</h1>
-    </div>
+        </div>
+    </header>
 
 </body>
 </html>

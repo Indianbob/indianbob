@@ -49,15 +49,16 @@
         WHERE A.PATIENT_CODE = #{ patientCode }
     </select>
 
-    <select id="selectRecentDetectionByPatientCode" resultType="DetectionDTO">
+    <select id="selectDetectionByDetectionCode" resultType="DetectionDTO">
         SELECT A.*
         FROM DETECTION_LOG A
-        WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM (
-                                     SELECT C.*
-                                     FROM DETECTION_LOG C
-                                     WHERE C.PATIENT_CODE = #{ patientCode }
-                                     ) B
-                                 )
+        WHERE A.DETECTION_CODE = #{ detectionCode }
+    </select>
+
+    <select id="selectRecentDetectionByPatientCode" resultType="DetectionDTO">
+        SELECT A.*
+          FROM DETECTION_LOG A
+         WHERE A.DETECTION_CODE = #{ patientCode }
     </select>
 
     <select id="selectAllDetectionPatient" resultMap="DetectionPatientResultMap">
