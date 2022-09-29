@@ -36,4 +36,9 @@ public class PatientService {
 
         return result;
     }
+
+    public void insertPatient(PatientDTO patient) {
+
+        int result = mapper.insertPatient(patient);
+    }
 }

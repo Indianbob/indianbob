@@ -14,4 +14,6 @@ public interface MemberMapper {
     int insertMember(MemberDTO member);
 
     List<MemberDTO> findMemberAll();
+
+    List<MemberDTO> selectAllMember();
 }
