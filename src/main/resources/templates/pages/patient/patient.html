@@ -11,31 +11,31 @@
     <br/>
 
     <div >
-        <select>
-            <option value="">선택</option>
-            <option value="disease">지병명</option>
-            <option value="name">이름</option>
-            <option value="age">나이</option>
-            <option value="gender">성별</option>
-        </select>
+<!--        <select>-->
+<!--            <option value="">선택</option>-->
+<!--            <option value="disease">지병명</option>-->
+<!--            <option value="name">이름</option>-->
+<!--            <option value="age">나이</option>-->
+<!--            <option value="gender">성별</option>-->
+<!--        </select>-->
 
-        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>
+<!--        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>-->
 
-        <button>검색</button>
+<!--        <button>검색</button>-->
 
         <table class="patientListTable">
             <tr>
                 <td>환자 번호</td>
                 <td>환자 이름</td>
                 <td>생년월일</td>
-                <td>지병(상세보기)</td>
+                <td>성별</td>
             </tr>
             <th:block>
             <tr  th:each="patient: ${patientList}">
                 <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
                 <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
                 <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
-                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientPhone}" ></a></td>
+                <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientGender}" ></a></td>
             </tr>
             </th:block>
         </table>
