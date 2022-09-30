@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:replace="/common/header.html"></div>
-    <div class="container">
+    <div class="container" style="text-align: -webkit-center">
         <div class="patientInsertPage">
 
             <th:block>
@@ -15,9 +15,9 @@
                 <div class="patientInsertTop">
 
                 <!--사진 넣는 박스-->
-                <input  style="display: none" type="file" id="thumbnailImg1" name="thumbnailImg1" onchange="loadImg(this,1)">
-                <div class="patientInsertImg" id="titleImgArea">
-                    <img id="titleImg" style="width: 160px; height: 200px">사진추가
+                <input style="display: none;" type="file" id="thumbnailImg1" name="thumbnailImg1" onchange="loadImg(this,1)">
+                <div class="patientInsertImg" id="titleImgArea" style="background-color: white">
+                    <img id="titleImg" style="width: 160px; height: 200px;">사진추가
                 </div>
                 <hr/>
 
@@ -28,13 +28,12 @@
                     <tr> <td>성별</td> <td><input type="text" name="patientGender" class="patientInputBoxTop"></td> </tr>
                     <tr> <td>주소</td> <td><input type="text" name="patientAddress" class="patientInputBoxTop"></td> </tr>
                     <tr> <td>전화번호</td> <td><input type="text" name="patientPhone" class="patientInputBoxTop"></td> </tr>
-
                 </table>
                 </div>
             <hr/>
 
             <table class="patientInsertMiddle">
-    <!--            <tr> <td>지병 정보</td> <td><input class="patientInputBoxMiddle" type="text" name="illness" id="illness"> <button>+</button> </td> </tr>-->
+                <tr> <td>지병 정보</td> <td><input class="patientInputBoxMiddle" type="text" name="illness" id="illness"></td></tr>
                 <tr> <td>특이사항</td> <td><input class="patientInputBoxMiddle" type="text" name="explanation" id="notice"> </td> </tr>
             </table>
             <hr/>
@@ -47,7 +46,7 @@
 
             <hr/>
 
-            <button class="patientInsertCompletedButton" type="submit">완료</button>
+            <button class="btn btn-primary" type="submit">완료</button>
             </form>
             </th:block>
         </div>

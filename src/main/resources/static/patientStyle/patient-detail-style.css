@@ -13,10 +13,11 @@ body{
     text-align-last: left;
     width:400px;
     height:250px;
-    background-color: #F5F0BB;
+    background-color: #2c3e50;
     vertical-align: top;
     margin:10px;
     border-style: groove;
+    color:white;
 }
 .patientDetailInfoContent{
     width: 380px;
@@ -32,8 +33,10 @@ body{
 .noticeTable{
     width: 650px;
     display: inline-table;
-    background-color: #F5F0BB;
+    background-color: #2c3e50;
     border-style: groove;
     margin:10px;
     padding: 20px;
+    color:white;
+    text-align: center;
 }
