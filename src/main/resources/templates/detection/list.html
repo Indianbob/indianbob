@@ -24,10 +24,11 @@
     <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
         <div class="container">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Detection Logs</h2>
-            <div class="center-box" style="margin-top: 10vh;">
-                <table class="table">
+            <div class="center-box" style="margin-top: 8vh; flex-direction: column">
+                <table class="table" style="margin-top: 2vh;">
                     <tr style="background-color: #2C3E50; color: #fff">
                         <th class="table-rowHead">탐지 번호</th>
+                        <th class="table-rowHead">탐지 위치</th>
                         <th class="table-rowHead">환자 번호</th>
                         <th class="table-rowHead">환자 이름</th>
                         <th class="table-rowHead">환자 연락처</th>
@@ -37,52 +38,55 @@
                     </tr>
                     <tr class="table-row"
                         th:each="patient : ${ detectionPatientList }"
-                        th:if="${patient.detectionCode} ge ${selectCriteria.totalCount - (selectCriteria.pageNo) * 10 + 1} and ${patient.detectionCode} le ${selectCriteria.totalCount - (selectCriteria.pageNo - 1) * 10 } "
-                        th:onclick="|location.href='@{/detection/detail?(patientCode=${patient.patientCode})}'|">
+                        th:style="${patient.patientCode == 0? 'background-color: #ff0000b5;': 'background-color:#fff;'}"
+                        th:onclick="|location.href='@{/detection/detail?(detectionCode=${patient.detectionCode})}'|">
+<!--                        th:if="${patient.detectionCode} ge ${selectCriteria.totalCount - (selectCriteria.pageNo) * 10 + 1} and ${patient.detectionCode} le ${selectCriteria.totalCount - (selectCriteria.pageNo - 1) * 10 } "-->
+
                         <td th:text="${ patient.detectionCode }"/>
+                        <td th:text="${ patient.detectionLocation }"/>
                         <td th:text="${ patient.patientCode }"/>
-                        <td th:text="${ patient.patient.patientName }"/>
-                        <td th:text="${ patient.patient.patientPhone }"/>
-                        <td th:text="${ patient.patient.guardianName }"/>
-                        <td th:text="${ patient.patient.guardianPhone }"/>
+                        <td th:text="${ patient.patient.patientName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.patientPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
                         <td th:text="${ patient.detectionDate }"/>
                     </tr>
                 </table>
                 <!-- 페이지 처리 -->
-            </div>
-            <div class="pagingArea" align="center">
-                <button
-                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.startPage}} + '\''"
-                        th:disabled="${selectCriteria.pageNo == 1}"
-                >
-                    <<
-                </button>
-                <button
-                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.pageNo - 1}} + '\''"
-                        th:disabled="${selectCriteria.pageNo == 1}"
-                >
-                    <
-                </button>
-                <th:block th:each="page : ${#numbers.sequence(selectCriteria.startPage, selectCriteria.endPage)}">
-                    <button
-                            th:text="${ page }"
-                            th:onclick="'location.href=\'/detection?currentPage='+ @{${page}} + '\''"
-                            th:disabled="${ selectCriteria.pageNo eq page }">
-                    </button>
-                </th:block>
-                <button
-                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.pageNo + 1}} + '\''"
-                        th:disabled="${selectCriteria.pageNo == selectCriteria.maxPage}"
-                >
-                    >
-                </button>
-                <button
-                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.maxPage}} + '\''"
-                        th:disabled="${selectCriteria.pageNo == selectCriteria.maxPage}"
-                >
-                    >>
-                </button>
-            </div>
+<!--            </div>-->
+<!--            <div class="pagingArea" align="center">-->
+<!--                <button-->
+<!--                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.startPage}} + '\''"-->
+<!--                        th:disabled="${selectCriteria.pageNo == 1}"-->
+<!--                >-->
+<!--                    <<-->
+<!--                </button>-->
+<!--                <button-->
+<!--                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.pageNo - 1}} + '\''"-->
+<!--                        th:disabled="${selectCriteria.pageNo == 1}"-->
+<!--                >-->
+<!--                    <-->
+<!--                </button>-->
+<!--                <th:block th:each="page : ${#numbers.sequence(selectCriteria.startPage, selectCriteria.endPage)}">-->
+<!--                    <button-->
+<!--                            th:text="${ page }"-->
+<!--                            th:onclick="'location.href=\'/detection?currentPage='+ @{${page}} + '\''"-->
+<!--                            th:disabled="${ selectCriteria.pageNo eq page }">-->
+<!--                    </button>-->
+<!--                </th:block>-->
+<!--                <button-->
+<!--                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.pageNo + 1}} + '\''"-->
+<!--                        th:disabled="${selectCriteria.pageNo == selectCriteria.maxPage}"-->
+<!--                >-->
+<!--                    >-->
+<!--                </button>-->
+<!--                <button-->
+<!--                        th:onclick="'location.href=\'/detection?currentPage='+ @{${selectCriteria.maxPage}} + '\''"-->
+<!--                        th:disabled="${selectCriteria.pageNo == selectCriteria.maxPage}"-->
+<!--                >-->
+<!--                    >>-->
+<!--                </button>-->
+<!--            </div>-->
         </div>
     </section>
 </body>

@@ -49,15 +49,22 @@
         WHERE A.PATIENT_CODE = #{ patientCode }
     </select>
 
+    <select id="selectDetectionByDetectionCode" resultType="DetectionDTO">
+        SELECT A.*
+        FROM DETECTION_LOG A
+        WHERE A.DETECTION_CODE = #{ detectionCode }
+    </select>
+
+    <select id="selectDetectionCode" resultType="DetectionDTO">
+        SELECT A.*
+          FROM DETECTION_LOG A
+         WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM DETECTION_LOG B)
+    </select>
+
     <select id="selectRecentDetectionByPatientCode" resultType="DetectionDTO">
         SELECT A.*
         FROM DETECTION_LOG A
-        WHERE A.DETECTION_CODE = (SELECT MAX(B.DETECTION_CODE) FROM (
-                                     SELECT C.*
-                                     FROM DETECTION_LOG C
-                                     WHERE C.PATIENT_CODE = #{ patientCode }
-                                     ) B
-                                 )
+        WHERE A.DETECTION_CODE = #{ patientCode }
     </select>
 
     <select id="selectAllDetectionPatient" resultMap="DetectionPatientResultMap">
@@ -99,5 +106,27 @@
              , #{ imageName }
              , #{ image }
              )
+    </insert>
+
+    <insert id="insertDetectionWarning" parameterType="DetectionDTO">
+        INSERT
+        INTO DETECTION_LOG A
+            (
+               DETECTION_CODE
+             , DETECTION_DATE
+             , DETECTION_LOCATION
+             , IMAGE_PATH
+             , IMAGE_NAME
+             , PATIENT_CODE
+             )
+        VALUES
+            (
+            SEQ_DETECTION_CODE.NEXTVAL
+                , #{ detectionDate }
+                , #{ detectionLocation }
+                , #{ imagePath }
+                , #{ imageName }
+                , 0
+            )
     </insert>
 </mapper>

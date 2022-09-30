@@ -23,4 +23,10 @@ public interface DetectionMapper {
     DetectionDTO selectRecentDetectionByPatientCode(int patientCode);
 
     List<DetectionPatientDTO> selectPagenationDetectionPatient(SelectCriteria selectCriteria);
+
+    DetectionDTO selectDetectionByDetectionCode(int detectionCode);
+
+    DetectionDTO selectDetectionCode();
+
+    boolean insertDetectionWarning(DetectionDTO detectionInfo);
 }
