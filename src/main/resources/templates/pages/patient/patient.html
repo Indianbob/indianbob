@@ -21,19 +21,20 @@
 <body>
 <div th:replace="/common/header.html"></div>
 
-    <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
-        <div class="container">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Patients</h2>
+<section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Patients</h2>
 
         <!--        <select>-->
-<!--            <option value="">선택</option>-->
-<!--            <option value="disease">지병명</option>-->
-<!--            <option value="name">이름</option>-->
-<!--            <option value="age">나이</option>-->
-<!--            <option value="gender">성별</option>-->
-<!--        </select>-->
+        <!--            <option value="">선택</option>-->
+        <!--            <option value="disease">지병명</option>-->
+        <!--            <option value="name">이름</option>-->
+        <!--            <option value="age">나이</option>-->
+        <!--            <option value="gender">성별</option>-->
+        <!--        </select>-->
 
-<!--        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>-->
+        <!--        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>-->
+
 
 <!--        <button>검색</button>-->
         <div class="center-box" style="margin-top: 10vh; ">
@@ -54,11 +55,12 @@
             </th:block>
         </table>
 
-        </div>
-            <button class="btn btn-primary" th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>
-        </div>
 
-    </section>
+        </div>
+        <button class="btn btn-primary" th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>
+    </div>
+
+</section>
 
 </body>
 </html>

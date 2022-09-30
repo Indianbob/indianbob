@@ -57,4 +57,20 @@ public class DetectionService {
 
         return detectionMapper.selectPagenationDetectionPatient(selectCriteria);
     }
+
+    public DetectionDTO selectDetectionByDetectionCode(int detectionCode) {
+
+        return detectionMapper.selectDetectionByDetectionCode(detectionCode);
+    }
+
+    public DetectionDTO selecttDetectionCode() {
+
+        return detectionMapper.selectDetectionCode();
+    }
+
+    @Transactional
+    public boolean insertDetectionWarning(DetectionDTO detectionInfo) {
+
+        return detectionMapper.insertDetectionWarning(detectionInfo);
+    }
 }
