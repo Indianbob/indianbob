@@ -21,23 +21,23 @@
 <body>
 <div th:replace="/common/header.html"/>
 <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
-  <div class="container">
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">질병 정보</h2>
-    <div class="center-box" style="margin-top: 10vh;">
-      <div class="mb-3">
-        <label class="form-label">질병 코드</label>
+  <div class="container" style="height: 700px; width: 700px">
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Disease Information</h2>
+    <div class="center-box" style="margin-top: 10vh">
+      <div class="mb-3" style="text-align: left">
+        <label class="form-label h4">질병 코드</label>
         <p class="form-control" th:text="${ disease.illnessCode }"></p>
       </div>
-      <div class="mb-3">
-        <label class="form-label">질병명</label>
+      <div class="mb-3" style="text-align: left">
+        <label class="form-label h4 mt-4">질병명</label>
         <p class="form-control" th:text="${ disease.illnessName }"></p>
       </div>
-      <div class="mb-3">
-        <label for="desc" class="form-label">내용</label>
-        <textarea class="form-control" rows="5" id="desc" th:text="${ disease.illnessDesc }"></textarea>
+      <div class="mb-3" style="text-align: left">
+        <label for="desc" class="form-label h4  mt-4">내용</label>
+        <textarea readonly class="form-control" rows="5" id="desc" th:text="${ disease.illnessDesc }"></textarea>
       </div>
       <br>
-      <div class="d-flex justify-content-evenly">
+      <div class="d-flex justify-content-center">
         <button
                 type="button"
                 class="btn btn-light"
@@ -47,13 +47,15 @@
         </button>
 
         <button
-                class="btn btn-primary"
+                class="btn"
+                style="background-color: #2C3E50; color: #fff; margin-left: 30px"
                 th:onclick="'location.href=\'/disease/update?no='+ @{${ disease.illnessCode }} + '\''"
         >
           수정하기
         </button>
         <button
                 class="btn btn-light"
+                style="margin-left: 30px"
                 th:onclick="'location.href=\'/disease/delete?no='+ @{${ disease.illnessCode }} + '\''"
         >
           삭제하기
@@ -61,5 +63,8 @@
       </div>
     </div>
 </section>
+<div class="copyright py-4 text-center text-white">
+  <div class="container"><small>Copyright &copy; IndianBob 2022</small></div>
+</div>
 </body>
 </html>

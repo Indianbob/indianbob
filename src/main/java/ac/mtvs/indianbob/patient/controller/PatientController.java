@@ -83,7 +83,7 @@ public class PatientController {
         String realpath = request.getContextPath();
         String rootLocation = IMAGE_DIR;
 
-        String Path = "D:\\INDIANBOB\\Indian_Bob\\indianbob\\src\\main\\resources\\static\\images\\patient";
+        String Path = "D:\\indianbob\\indianbob\\src\\main\\resources\\static\\images\\patient";
         String fileUploadDirectory = "/images/patient/";
         System.out.println("aaa" + fileUploadDirectory);
         String fileName = thumbnailImg1.getName();

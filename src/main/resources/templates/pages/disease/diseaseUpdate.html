@@ -23,7 +23,7 @@
 <div th:replace="/common/header.html"/>
 <section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
     <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">질병 수정</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Edit Disease Info</h2>
         <div class="center-box" style="margin-top: 10vh;">
             <form th:action="@{/disease/update}" method="post">
                 <input
@@ -45,7 +45,7 @@
                     </tr>
                 </table>
                 <br>
-                <div class="d-flex justify-content-evenly">
+                <div class="d-flex justify-content-center">
                     <button
                             type="button"
                             class="btn btn-light"
@@ -53,13 +53,16 @@
                     >
                         돌아가기
                     </button>
-                    <button type="reset" class="btn btn-light">작성내용 되돌리기</button>
-                    <button type="submit" class="btn btn-primary">등록하기</button>
+                    <!--                    <button type="reset" class="btn btn-light">작성내용 되돌리기</button>-->
+                    <button type="submit" class="btn" style="background-color: #2C3E50; color: #fff; margin-left: 30px">등록하기</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+<div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright &copy; IndianBob 2022</small></div>
+</div>
 </body>
 
 </html>

@@ -41,6 +41,7 @@
              , A.MANAGE_STAFF_CODE
              , A.PATIENT_GENDER
         FROM PATIENT A
+        ORDER BY A.PATIENT_CODE DESC
     </select>
 
     <select id="selectPatientByPatientCode" resultType="PatientDTO">
