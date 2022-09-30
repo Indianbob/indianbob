@@ -35,24 +35,26 @@
 
         <!--        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>-->
 
-        <!--        <button>검색</button>-->
-        <div class="center-box" style="margin-top: 10vh;">
-            <table class="table">
-                <tr style="background-color: #2C3E50; color: #fff">
-                    <td>환자 번호</td>
-                    <td>환자 이름</td>
-                    <td>생년월일</td>
-                    <td>성별</td>
-                </tr>
-                <th:block>
-                    <tr  th:each="patient: ${patientList}" class="table-row">
-                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
-                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
-                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
-                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientGender}" ></a></td>
-                    </tr>
-                </th:block>
-            </table>
+
+<!--        <button>검색</button>-->
+        <div class="center-box" style="margin-top: 10vh; ">
+        <table class="table" style="color:black">
+            <tr style="background-color: #2C3E50; color: #fff">
+                <td>환자 번호</td>
+                <td>환자 이름</td>
+                <td>생년월일</td>
+                <td>성별</td>
+            </tr>
+            <th:block>
+            <tr  th:each="patient: ${patientList}" class="table-row">
+                <td><a style="color:black; text-decoration: none" th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
+                <td><a style="color:black; text-decoration: none" th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
+                <td><a style="color:black; text-decoration: none" th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
+                <td><a style="color:black; text-decoration: none" th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientGender}" ></a></td>
+            </tr>
+            </th:block>
+        </table>
+
 
         </div>
         <button class="btn btn-primary" th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>

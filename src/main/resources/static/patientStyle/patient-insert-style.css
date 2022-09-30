@@ -1,60 +1,62 @@
 body{
-    text-align: center;
+    text-align: -webkit-center;
 }
 .patientInsertPage{
-    background-color: #C4DFAA;
     width: 800px;
     display: inline-block;
     margin: 25px;
-    margin-top: 100px;
+    margin-top: 130px;
     border: 3px solid #000;
+    background-color:  #2c3e50;
+    text-align-last: center;
 }
 .patientInsertTop{
     display: inline-flex;
     margin: 25px;
 }
 .patientInsertInfo{
-    background-color: #F5F0BB;
     margin-left: 30px;
     padding: 15px;
+    color: white;
 }
 .patientInsertImg{
-    border-style: solid;
-    border-color: black;
-    border-top-width: 0.1px;
     width: 160px;
     height: 200px;
+    margin-right: 20px;
 }
 .patientInputBoxTop{
     width: 220px;
-    height: 25px;
+    height: 30px;
     margin-right: 10px;
+    margin-left: 15px;
 }
 .patientInsertMiddle{
     display: inline-table;
-    background-color: #F5F0BB;
     margin: 15px;
     width: 700px;
     padding: 25px;
+    color: white;
 }
 .patientInputBoxMiddle{
     width: 520px;
-    height: 25px;
+    height: 30px;
     margin-right: 10px;
-    margin-top:10px;
+    margin-top:5px;
+    margin-bottom: 5px;
 }
 .patientInsertBottom{
     display: inline-table;
-    background-color: #F5F0BB;
     margin: 15px;
     width: 700px;
     padding: 25px;
+    color: white;
 }
 .patientInputBoxBottom{
     width: 520px;
-    height: 25px;
+    height: 30px;
     margin-right: 10px;
-    margin-top:10px;
+    margin-top:5px;
+    margin-bottom: 5px;
 }
 .patientInsertCompletedButton{
     width: 90px;

@@ -8,15 +8,14 @@
 </head>
 <body>
 
-    <h1>+++header+++</h1>
-    <div class="patientDetailPage">
-    <hr/><br/>
+    <div th:replace="/common/header.html"></div>
 
+    <div class="container" style="text-align: -webkit-center; margin-top: 130px">
     <img th:src="${patient.patientPicture}" class="patientImg"/>
     <th:block>
         <div class="patientDetailInfo">
         <div class="patientDetailInfoContent" th:text="|이름 : ${patient.patientName}|"></div>
-        <div class="patientDetailInfoContent" th:text="|생년월일 : ${patient.patientCode}|"></div>
+        <div class="patientDetailInfoContent" th:text="|생년월일 : ${patient.patientBirth}|"></div>
         <div class="patientDetailInfoContent" th:text="|성별 : ${patient.patientGender}|"></div>
         <div class="patientDetailInfoContent" th:text="|주소 : ${patient.patientAddress}|"></div>
         </div>
@@ -27,13 +26,20 @@
         <tr> <td style="padding:15px" th:text="${patient.explanation}"></td> </tr>
     </table>
         <br/>
+    <table class="noticeTable">
+        <tr> <td style="border-bottom:dotted">지병 정보</td> </tr>
+        <tr> <td style="padding:15px" th:text="${patient.explanation}"></td> </tr>
+    </table>
+        <br/>
+    <table class="noticeTable">
+        <tr> <td style="border-bottom:dotted">보호자 정보</td> </tr>
+        <tr> <td style="padding:15px" th:text="|이름 : ${patient.guardianName}|"></td> </tr>
+        <tr> <td style="padding:15px" th:text="|전화번호 : ${patient.guardianPhone}|"></td> </tr>
+    </table>
+    <br/>
 
+    <button th:onclick="|location.href='@{/patient}'|" class="btn btn-primary" >목록으로</button>
 
-    <button th:onclick="|location.href='@{/patient}'|" >목록으로</button>
-
-    <hr/>
     </div>
-    <h1>+++footer+++</h1>
-
 </body>
 </html>
