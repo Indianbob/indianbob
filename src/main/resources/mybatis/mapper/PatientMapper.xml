@@ -72,6 +72,7 @@
             , A.PATIENT_BIRTH
              , A.PATIENT_PICTURE
         FROM PATIENT A
+        WHERE A.PATIENT_CODE = (SELECT MAX(B.PATIENT_CODE) FROM PATIENT B)
     </select>
 
     <insert id="insertPatient">

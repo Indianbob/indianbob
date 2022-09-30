@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
     <meta charset="UTF-8">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/bootstrap/assets/favicon.ico" />
@@ -13,48 +11,54 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/bootstrap/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/patientStyle/patient-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <link rel="stylesheet" href="/css/detectionList.css">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <div th:replace="/common/header.html"/>
+<div th:replace="/common/header.html"></div>
 
-        <header class="masthead text-white text-center" style="background-color: #fff; color: #1f2247;">
-            <div class="container" style="color: #1f2247;">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Patient List</h2>
-        <select>
-            <option value="">선택</option>
-            <option value="disease">지병명</option>
-            <option value="name">이름</option>
-            <option value="age">나이</option>
-            <option value="gender">성별</option>
-        </select>
+<section class="page-section portfolio text-center" id="portfolio" style="margin-top: 10vh;">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 3vh;">Patients</h2>
 
-        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>
+        <!--        <select>-->
+        <!--            <option value="">선택</option>-->
+        <!--            <option value="disease">지병명</option>-->
+        <!--            <option value="name">이름</option>-->
+        <!--            <option value="age">나이</option>-->
+        <!--            <option value="gender">성별</option>-->
+        <!--        </select>-->
 
-        <button>검색</button>
+        <!--        <input type="text" id="patientSearch" placeholder="검색 내용을 입력하세요"/>-->
 
-        <table class="table">
-            <tr style="background-color: #2C3E50; color: #fff">
-                <td>환자 번호</td>
-                <td>환자 이름</td>
-                <td>생년월일</td>
-                <td>지병(상세보기)</td>
-            </tr>
-            <th:block>
-            <tr class="table-row" th:each="patient: ${patientList}">
-                <td><a th:text="${patient.patientCode}" style="color: #1f2247; text-decoration: none"></a></td>
-                <td><a th:text="${patient.patientName}" style="color: #1f2247; text-decoration: none"></a></td>
-                <td><a th:text="${patient.patientBirth}" style="color: #1f2247; text-decoration: none"></a></td>
-                <td><a th:text="${patient.patientPhone}"style="color: #1f2247; text-decoration: none"></a></td>
-            </tr>
-            </th:block>
-        </table>
+        <!--        <button>검색</button>-->
+        <div class="center-box" style="margin-top: 10vh;">
+            <table class="table">
+                <tr style="background-color: #2C3E50; color: #fff">
+                    <td>환자 번호</td>
+                    <td>환자 이름</td>
+                    <td>생년월일</td>
+                    <td>성별</td>
+                </tr>
+                <th:block>
+                    <tr  th:each="patient: ${patientList}" class="table-row">
+                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientCode}" ></a> </td>
+                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientName}" ></a></td>
+                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientBirth}" ></a></td>
+                        <td><a th:href="|/patient/detail?code=${patient.patientCode}|" th:text="${patient.patientGender}" ></a></td>
+                    </tr>
+                </th:block>
+            </table>
 
-        <button th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>
-        <br/>
         </div>
-    </header>
+        <button class="btn btn-primary" th:onclick="|location.href='@{/patient/insert}'|">환자추가</button>
+    </div>
+
+</section>
 
 </body>
 </html>

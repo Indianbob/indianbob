@@ -38,7 +38,7 @@
                     </tr>
                     <tr class="table-row"
                         th:each="patient : ${ detectionPatientList }"
-                        th:style="${patient.patientCode == 0? 'background-color: #ff0000cc;': 'background-color:#fff;'}"
+                        th:style="${patient.patientCode == 0? 'background-color: #ff0000b5;': 'background-color:#fff;'}"
                         th:onclick="|location.href='@{/detection/detail?(detectionCode=${patient.detectionCode})}'|">
 <!--                        th:if="${patient.detectionCode} ge ${selectCriteria.totalCount - (selectCriteria.pageNo) * 10 + 1} and ${patient.detectionCode} le ${selectCriteria.totalCount - (selectCriteria.pageNo - 1) * 10 } "-->
 
