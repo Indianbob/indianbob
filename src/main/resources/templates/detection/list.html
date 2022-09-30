@@ -44,11 +44,11 @@
 
                         <td th:text="${ patient.detectionCode }"/>
                         <td th:text="${ patient.detectionLocation }"/>
-                        <td th:text="${ patient.patient.patientName != 0 } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.patientCode != 0 } ? ${ patient.patient.patientCode} : '알 수 없음'"/>
                         <td th:text="${ patient.patient.patientName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
-                        <td th:text="${ patient.patient.patientPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
-                        <td th:text="${ patient.patient.guardianName } ? ${ patient.patient.patientName} : '알 수 없음'"/>
-                        <td th:text="${ patient.patient.guardianPhone } ? ${ patient.patient.patientName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.patientPhone } ? ${ patient.patient.patientPhone} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianName } ? ${ patient.patient.guardianName} : '알 수 없음'"/>
+                        <td th:text="${ patient.patient.guardianPhone } ? ${ patient.patient.guardianPhone} : '알 수 없음'"/>
                         <td th:text="${ patient.detectionDate }"/>
                     </tr>
                 </table>

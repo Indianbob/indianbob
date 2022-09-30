@@ -96,7 +96,7 @@
         )
         VALUES
             (
-            SEQ_PATIENT_CODE.NEXTVAL,
+            10,
             #{ patientName },
             #{ patientBirth },
             #{ patientGender },

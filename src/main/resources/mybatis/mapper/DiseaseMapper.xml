@@ -16,6 +16,7 @@
              , A.ILLNESS_NAME
              , A.ILLNESS_DESC
         FROM ILLNESS A
+        ORDER BY A.ILLNESS_CODE DESC
     </select>
 
     <insert id="insertDisease" parameterType="DiseaseDTO">
@@ -28,12 +29,11 @@
         )
         VALUES
             (
-            SEQ_ILLNESS_CODE.NEXTVAL
+            9
                 , #{ illnessName }
                 , #{ illnessDesc }
             )
     </insert>
-
 
     <select id="selectDiseaseDetail" parameterType="long" resultMap="diseaseResultMap">
         SELECT
